@@ -110,17 +110,20 @@ var swiper = new Swiper(".services-slider", {
 /*- brand-catalog -*/
 document.addEventListener('DOMContentLoaded', function () {
     const brandCatalog = document.getElementById('brand-catalog');
+    
+    if (!brandCatalog) return;
+
     const brandsList = brandCatalog.querySelector('.brands-list');
     const btn = brandCatalog.querySelector('.btn');
 
-    btn.addEventListener('click', function() {
+    if (!brandsList || !btn) return;
+
+    btn.addEventListener('click', function () {
         brandsList.classList.toggle('show');
 
-        if (brandsList.classList.contains('show')) {
-            btn.textContent = 'Скрыть';
-        } else {
-            btn.textContent = 'Показать все';
-        }
+        btn.textContent = brandsList.classList.contains('show')
+            ? 'Скрыть'
+            : 'Показать все';
     });
 });
 
@@ -332,7 +335,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    document.querySelectorAll('.phone-input').forEach(formatPhoneInput);
+    const phoneInputs = document.querySelectorAll('.phone-input');
+    if (!phoneInputs.length) return;
+
+    phoneInputs.forEach(formatPhoneInput);
 });
 
 /*- gl-tabs -*/
@@ -357,7 +363,11 @@ document.addEventListener("DOMContentLoaded", function () {
 /*- reviews-list -*/
 document.addEventListener('DOMContentLoaded', () => {
     const reviewsList = document.querySelector('.reviews-list');
+    if (!reviewsList) return;
+
     const allReviews = reviewsList.querySelectorAll('.review');
+    if (!allReviews.length) return;
+
     const btnPanel = document.querySelector('.reviews-btn-panel');
 
     allReviews.forEach((review, index) => {
@@ -422,3 +432,26 @@ function init() {
     myMap.geoObjects.add(customPlacemark1);
     myMap.geoObjects.add(customPlacemark2);
 }
+
+/*- filter -*/
+document.querySelectorAll('.filter__title-panel').forEach(panel => {
+    panel.addEventListener('click', () => {
+        panel.classList.toggle('close');
+
+        const dropdown = panel.nextElementSibling;
+        if (dropdown && dropdown.classList.contains('filter__dropdown')) {
+            dropdown.classList.toggle('hidden');
+        }
+    });
+});
+
+/*- filter-vertical-scroll -*/
+var swiper = new Swiper(".filter-vertical-scroll", {
+    direction: "vertical",
+    slidesPerView: "auto",
+    freeMode: true,
+    scrollbar: {
+        el: ".swiper-scrollbar",
+    },
+    mousewheel: true,
+});
