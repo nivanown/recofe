@@ -194,7 +194,9 @@
 		font-size: 1rem;
 		line-height: 1.25rem;
 		&.active {
-			color: var(--secondary-text-color);
+			span {
+				color: var(--secondary-text-color);
+				}
 			}
 		}
 	a {

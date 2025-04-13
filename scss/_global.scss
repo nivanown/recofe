@@ -26,7 +26,7 @@ body {
 
 /* p */
 p {
-  color: var(--tertiary-text-color);
+  color: var(--primary-text-color);
   font-size: 1rem;
   line-height: 1.5rem;
   }
@@ -102,20 +102,60 @@ input[type='password']::-webkit-input-placeholder {
   color: var(--primary-text-color);
   }
 
+/* input-field */
+.input-field {
+  position: relative;
+  padding: 0 0.875rem;
+  background: var(--secondary-background-color);
+  border-radius: 0.75rem;
+  label {
+    position: absolute;
+    display: block;
+    margin: 0;
+    top: 1.125rem;
+    left: 1.5rem;
+    color: var(--six-text-color);
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    transition: .5s all;
+    }
+  input {
+    padding: 0;
+    &:focus {
+      padding: 1.625rem 0 0.75rem;
+      + label {
+        top: 0.5625rem;
+        left: 0.875rem;
+        font-size: 0.75rem;
+        line-height: 0.9375rem;
+        }
+      }
+    &:valid {
+      padding: 1.625rem 0 0.75rem;
+      + label {
+        top: 0.5625rem;
+        left: 0.875rem;
+        font-size: 0.75rem;
+        line-height: 0.9375rem;
+        }
+      }
+    }
+  }
+
 /* textarea */
 textarea {
   margin: 0;
-  padding: 0.625rem 1.25rem;
+  padding: 1.5rem;
   width: 100%;
-  height: 10rem;
+  height: 13.5rem;
   color: var(--primary-text-color);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-family: var(--primary-font-family);
   font-weight: var(--primary-font-weight);
-  line-height: 1.5rem;
-  border: 0.0625rem solid var(--secondary-border-color);
-  background: rgba(0, 0, 0, 0);
-  border-radius: 0.625rem;
+  line-height: 1.4375rem;
+  border: none;
+  background: var(--secondary-background-color);
+  border-radius: 1.5rem;
   box-shadow: none !important;
   transition: .5s all;
   overflow: auto;
@@ -127,11 +167,11 @@ textarea:focus {
   }
 
 textarea::-moz-placeholder {
-  color: var(--primary-text-color);
+  color: var(--six-text-color);
   }
 
 textarea::-webkit-input-placeholder {
-  color: var(--primary-text-color);
+  color: var(--six-text-color);
   }
 
 /* checkbox */
@@ -139,9 +179,6 @@ textarea::-webkit-input-placeholder {
   display: flex;
   align-items: flex-start;
   gap: 0 0.625rem;
-  &_indent-top {
-    margin-top: 1.25rem;
-    }
   &.hidden {
     display: none;
     }
@@ -149,15 +186,14 @@ textarea::-webkit-input-placeholder {
     position: relative;
     display: block;
     flex-shrink: 0;
-    margin: 0.125rem 0 0;
+    margin: 0;
     padding: 0;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
     vertical-align: top;
     border: 0;
-    box-shadow: 0 0 0 0.0625rem var(--quaternary-border-color) inset;
-    background: none;
-    border-radius: 0.3125rem;
+    background: var(--secondary-background-color);
+    border-radius: 0.375rem;
     outline: 0;
     cursor: pointer;
     -webkit-appearance: none;
@@ -168,7 +204,7 @@ textarea::-webkit-input-placeholder {
       position: absolute;
       display: block;
       width: 0.875rem;
-      height: 0.8125rem;
+      height: 0.75rem;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -179,8 +215,7 @@ textarea::-webkit-input-placeholder {
       transition: opacity .3s;
       }
     &:checked {
-      background-color: var(--fifth-background-color);
-      box-shadow: none;
+      background-color: var(--tertiary-background-color);
       &:before {
         opacity: 1;
         }
@@ -188,7 +223,10 @@ textarea::-webkit-input-placeholder {
     }
   label {
     margin: 0;
+    padding: 0.125rem 0 0;
     color: var(--primary-text-color);
+    font-size: 1rem;
+    line-height: 1.25rem;
     }
   }
 
@@ -285,6 +323,14 @@ textarea::-webkit-input-placeholder {
       background: var(--primary-btn-color);
       }
     }
+  &_color-gray {
+    color: var(--tertiary-text-color);
+    background: var(--tertiary-btn-color);
+    &:hover {
+      color: var(--primary-text-color);
+      background: var(--primary-btn-color);
+      }
+    }
   &_color-white {
     color: var(--fifth-text-color);
     background: var(--quaternary-btn-color);
@@ -347,17 +393,38 @@ textarea::-webkit-input-placeholder {
   display: none;
   }
 
-/* wrapper */
-.wrapper {
-  overflow: hidden;
-  }
-
 /* select */
 .select {
   position: relative;
   height: 3.625rem;
   background: var(--quaternary-background-color);
   border-radius: 0.75rem;
+  &_size-small {
+    height: 3.25rem;
+    border-radius: 0.625rem;
+    .select__placeholder-text {
+      padding: 1rem 3rem 1rem 0.75rem;
+      }
+    .select__text {
+      padding: 1rem 3rem 1rem 0.75rem;
+      height: 3.25rem;
+      &:after {
+        width: 0.875rem;
+        height: 0.5625rem;
+        right: 1.125rem;
+        transform: rotate(180deg);
+        background: url(../img/icons/filter-arrow.svg) center no-repeat;
+        background-size: 100%;
+        }
+      }
+    &.open {
+      .select__text {
+        &:after {
+          transform: rotate(0deg) !important;
+          }
+        }
+      }
+    }
   input {
     position: absolute;
     width: 0.0625rem;
@@ -464,6 +531,15 @@ textarea::-webkit-input-placeholder {
       height: auto;
       }
     }
+  }
+
+/* big-title */
+.big-title {
+  margin: 0 0 1.875rem;
+  font-size: 4.25rem;
+  font-family: var(--secondary-font-family);
+  font-weight: var(--quaternary-font-weight);
+  line-height: 3.375rem;
   }
 
 /* title */
