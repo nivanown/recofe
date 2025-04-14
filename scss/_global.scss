@@ -114,8 +114,8 @@ input[type='password']::-webkit-input-placeholder {
     margin: 0;
     top: 1.125rem;
     left: 1.5rem;
-    color: var(--six-text-color);
-    font-size: 1.125rem;
+    color: var(--primary-text-color);
+    font-size: 16px;
     line-height: 1.25rem;
     transition: .5s all;
     }
@@ -126,6 +126,7 @@ input[type='password']::-webkit-input-placeholder {
       + label {
         top: 0.5625rem;
         left: 0.875rem;
+        color: var(--six-text-color);
         font-size: 0.75rem;
         line-height: 0.9375rem;
         }
@@ -135,6 +136,7 @@ input[type='password']::-webkit-input-placeholder {
       + label {
         top: 0.5625rem;
         left: 0.875rem;
+        color: var(--six-text-color);
         font-size: 0.75rem;
         line-height: 0.9375rem;
         }
