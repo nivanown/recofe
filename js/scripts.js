@@ -102,8 +102,8 @@ var swiper = new Swiper(".services-slider", {
         },
     },
     navigation: {
-        nextEl: "#services-slder-btns .swiper-button-next",
-        prevEl: "#services-slder-btns .swiper-button-prev",
+        nextEl: "#services-slider-btns .swiper-button-next",
+        prevEl: "#services-slider-btns .swiper-button-prev",
     },
 });
 
@@ -171,8 +171,8 @@ var swiper = new Swiper(".offers-slider", {
         },
     },
     navigation: {
-        nextEl: "#offers-slder-btns .swiper-button-next",
-        prevEl: "#offers-slder-btns .swiper-button-prev",
+        nextEl: "#offers-slider-btns .swiper-button-next",
+        prevEl: "#offers-slider-btns .swiper-button-prev",
     },
 });
 
@@ -235,8 +235,8 @@ var swiper = new Swiper(".products-slider", {
         },
     },
     navigation: {
-        nextEl: "#products-slder-btns .swiper-button-next",
-        prevEl: "#products-slder-btns .swiper-button-prev",
+        nextEl: "#products-slider-btns .swiper-button-next",
+        prevEl: "#products-slider-btns .swiper-button-prev",
     },
 });
 
@@ -269,8 +269,8 @@ var swiper = new Swiper(".masters-slider", {
         },
     },
     navigation: {
-        nextEl: "#masters-slder-btns .swiper-button-next",
-        prevEl: "#masters-slder-btns .swiper-button-prev",
+        nextEl: "#masters-slider-btns .swiper-button-next",
+        prevEl: "#masters-slider-btns .swiper-button-prev",
     },
 });
 
@@ -454,4 +454,38 @@ var swiper = new Swiper(".filter-vertical-scroll", {
         el: ".swiper-scrollbar",
     },
     mousewheel: true,
+});
+
+/*- masters-slider -*/
+var swiper = new Swiper(".certificates-slider", {
+    autoplay: false,
+    autoHeight: false,
+    loop: true,
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    spaceBetween: false,
+    breakpoints: {
+    0: {
+        slidesPerView: 2,
+        spaceBetween: false,
+        slidesPerGroup: 2,
+        },
+    460: {
+        slidesPerView: 2,
+        spaceBetween: false,
+        slidesPerGroup: 2,
+        },
+    767: {
+        slidesPerView: 3,
+        spaceBetween: false,
+        },
+    1079: {
+        slidesPerView: 3,
+        spaceBetween: false,
+        },
+    },
+    navigation: {
+        nextEl: "#certificates-slider-btns .swiper-button-next",
+        prevEl: "#certificates-slider-btns .swiper-button-prev",
+    },
 });
