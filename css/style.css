@@ -3569,8 +3569,8 @@ textarea::-webkit-input-placeholder {
   line-height: 1.25rem;
 }
 
-/* rating */
-.rating {
+/* rating-nav */
+.rating-nav {
   display: flex;
   align-items: center;
   gap: 0 0.6875rem;
@@ -3579,13 +3579,13 @@ textarea::-webkit-input-placeholder {
   width: 10.5625rem;
   text-align: left;
 }
-.rating input {
+.rating-nav input {
   display: none;
 }
-.rating input:checked ~ label:before {
+.rating-nav input:checked ~ label:before {
   opacity: 1;
 }
-.rating label {
+.rating-nav label {
   position: relative;
   display: block;
   margin: 0;
@@ -3595,7 +3595,7 @@ textarea::-webkit-input-placeholder {
   background-size: 100%;
   cursor: pointer;
 }
-.rating label:before {
+.rating-nav label:before {
   position: absolute;
   display: block;
   width: 1.5625rem;
@@ -3608,10 +3608,10 @@ textarea::-webkit-input-placeholder {
   transition: 0.3s opacity;
   content: "";
 }
-.rating label:hover:before {
+.rating-nav label:hover:before {
   opacity: 1;
 }
-.rating label:hover ~ label:before {
+.rating-nav label:hover ~ label:before {
   opacity: 1;
 }
 
