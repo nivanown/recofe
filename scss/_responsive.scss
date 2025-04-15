@@ -10,3 +10,18 @@ html {
 }
 
 }
+
+/* 767 */
+@media (max-width: 767px) {
+
+.categories {
+  &__item {
+    height: 8.125rem;
+    }
+  &__img {
+    width: 12.5rem;
+    height: 8.125rem;
+    }
+  }
+
+}
