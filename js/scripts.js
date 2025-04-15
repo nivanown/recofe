@@ -19,8 +19,30 @@ document.addEventListener("DOMContentLoaded", () => {
     allSelects.forEach(select => {
         const selectText = select.querySelector(".select__text");
         const dropdown = select.querySelector(".select__dropdown");
+        const listItems = select.querySelectorAll(".select__dropdown li");
+        const input = select.querySelector("input[type='text']");
+        const placeholderText = select.querySelector(".select__placeholder-text");
 
-        if (!selectText || !dropdown) return;
+        if (!selectText || !dropdown || !input || !listItems.length) return;
+
+        if (input.value) {
+            const matchedItem = Array.from(listItems).find(item => item.textContent.trim() === input.value.trim());
+
+            if (matchedItem) {
+                listItems.forEach(li => li.classList.remove("active"));
+                matchedItem.classList.add("active");
+
+                selectText.textContent = matchedItem.textContent;
+
+                if (placeholderText) {
+                    placeholderText.classList.add("hidden");
+                }
+
+                select.classList.add("selected");
+            }
+        } else {
+            input.value = selectText.textContent;
+        }
 
         selectText.addEventListener("click", (event) => {
             event.stopPropagation();
@@ -31,32 +53,25 @@ document.addEventListener("DOMContentLoaded", () => {
             dropdown.classList.toggle("show", !isOpen);
         });
 
-        const listItems = select.querySelectorAll(".select__dropdown li");
-        const input = select.querySelector("input[type='text']");
-        const placeholderText = select.querySelector(".select__placeholder-text");
+        listItems.forEach(item => {
+            item.addEventListener("click", (event) => {
+                event.stopPropagation();
+                listItems.forEach(li => li.classList.remove("active"));
+                item.classList.add("active");
 
-        if (listItems.length) {
-            input.value = selectText.textContent;
+                selectText.textContent = item.textContent;
+                input.value = item.textContent;
 
-            listItems.forEach(item => {
-                item.addEventListener("click", (event) => {
-                    event.stopPropagation();
-                    listItems.forEach(li => li.classList.remove("active"));
-                    item.classList.add("active");
+                if (placeholderText) {
+                    placeholderText.classList.add("hidden");
+                }
 
-                    selectText.textContent = item.textContent;
-                    input.value = item.textContent;
+                select.classList.add("selected");
 
-                    if (placeholderText) {
-                        placeholderText.classList.add("hidden");
-                    }
-                    select.classList.add("selected");
-
-                    select.classList.remove("open");
-                    dropdown.classList.remove("show");
-                });
+                select.classList.remove("open");
+                dropdown.classList.remove("show");
             });
-        }
+        });
     });
 
     document.addEventListener("click", closeAll);
@@ -488,4 +503,98 @@ var swiper = new Swiper(".certificates-slider", {
         nextEl: "#certificates-slider-btns .swiper-button-next",
         prevEl: "#certificates-slider-btns .swiper-button-prev",
     },
+});
+
+/*- price-slider -*/
+const priceGap = 1000;
+
+document.querySelectorAll(".price-slider").forEach((container) => {
+    const rangeInputs = container.querySelectorAll(".range-input input"),
+        priceInputs = container.querySelectorAll(".price-input input"),
+        progressBar = container.querySelector(".slider .progress");
+
+    const [rangeMin, rangeMax] = rangeInputs;
+    const [priceMin, priceMax] = priceInputs;
+
+    const updateRangeStyles = () => {
+        progressBar.style.left = (parseInt(rangeMin.value) / rangeMin.max) * 100 + "%";
+        progressBar.style.right = 100 - (parseInt(rangeMax.value) / rangeMax.max) * 100 + "%";
+    };
+
+    const syncPriceToRange = (e) => {
+        let min = parseInt(priceMin.value),
+            max = parseInt(priceMax.value);
+
+        if (max - min >= priceGap && max <= rangeMax.max) {
+            if (e.target === priceMin) {
+                rangeMin.value = min;
+            } else {
+                rangeMax.value = max;
+            }
+            updateRangeStyles();
+        }
+    };
+
+    const syncRangeToPrice = (e) => {
+        let min = parseInt(rangeMin.value),
+            max = parseInt(rangeMax.value);
+
+        if (max - min < priceGap) {
+            if (e.target === rangeMin) {
+                rangeMin.value = max - priceGap;
+            } else {
+                rangeMax.value = min + priceGap;
+            }
+        } else {
+            priceMin.value = min;
+            priceMax.value = max;
+            updateRangeStyles();
+        }
+    };
+
+    const restrictToDigits = (e) => {
+        e.target.value = e.target.value.replace(/\D/g, "");
+    };
+
+    priceInputs.forEach((input) => {
+        input.addEventListener("input", restrictToDigits);
+        input.addEventListener("input", syncPriceToRange);
+    });
+
+    rangeInputs.forEach(input => input.addEventListener("input", syncRangeToPrice));
+});
+
+/*- info-list -*/
+document.addEventListener('DOMContentLoaded', function () {
+    const allInfoLists = document.querySelectorAll('.info-list');
+
+    if (!allInfoLists.length) return;
+
+    allInfoLists.forEach(infoList => {
+        const items = infoList.querySelectorAll('.info-list__item');
+        const toggleLink = infoList.querySelector('.info-list__all-link');
+
+        if (!items.length || !toggleLink) return;
+
+        const initialVisibleCount = 3;
+        let expanded = false;
+
+        items.forEach((item, index) => {
+            if (index >= initialVisibleCount) {
+                item.classList.add('hidden');
+            }
+        });
+
+        toggleLink.addEventListener('click', function () {
+            expanded = !expanded;
+
+            items.forEach((item, index) => {
+                if (index >= initialVisibleCount) {
+                    item.classList.toggle('hidden', !expanded);
+                }
+            });
+
+            toggleLink.textContent = expanded ? 'Скрыть' : 'Показать все';
+        });
+    });
 });
