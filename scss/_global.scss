@@ -341,6 +341,12 @@ textarea::-webkit-input-placeholder {
       background: var(--tertiary-btn-color);
       }
     }
+  &_color-darck-black {
+    background: var(--fifth-btn-color);
+    &:hover {
+      background: var(--tertiary-btn-color);
+      }
+    }
   &_hidden {
     display: none;
     }
