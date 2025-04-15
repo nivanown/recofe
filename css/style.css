@@ -4107,3 +4107,13 @@ input[type=range]::-moz-range-thumb {
     max-width: 100%;
   }
 }
+/* 767 */
+@media (max-width: 767px) {
+  .categories__item {
+    height: 8.125rem;
+  }
+  .categories__img {
+    width: 12.5rem;
+    height: 8.125rem;
+  }
+}
