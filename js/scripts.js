@@ -598,3 +598,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+/*- product-slider -*/
+var swiper = new Swiper(".product-slider__sm", {
+    spaceBetween: 20,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+});
+
+var swiper2 = new Swiper(".product-slider__big", {
+    spaceBetween: 10,
+    thumbs: {
+        swiper: swiper,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
