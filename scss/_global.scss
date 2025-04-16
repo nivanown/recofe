@@ -347,6 +347,14 @@ textarea::-webkit-input-placeholder {
       background: var(--tertiary-btn-color);
       }
     }
+  &_color-light {
+    color: var(--primary-text-color);
+    box-shadow: 0 0 0 0.0625rem inset var(--tertiary-border-color);
+    background: none;
+    &:hover {
+      background: var(--primary-btn-color);
+      }
+    }
   &_hidden {
     display: none;
     }
