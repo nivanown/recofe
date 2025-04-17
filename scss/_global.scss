@@ -115,7 +115,7 @@ input[type='password']::-webkit-input-placeholder {
     top: 1.125rem;
     left: 1.5rem;
     color: var(--primary-text-color);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.25rem;
     transition: .5s all;
     }
@@ -140,6 +140,39 @@ input[type='password']::-webkit-input-placeholder {
         font-size: 0.75rem;
         line-height: 0.9375rem;
         }
+      }
+    }
+  }
+
+/* select-field */
+.select-field {
+  position: relative;
+  padding: 0 0.875rem;
+  background: var(--secondary-background-color);
+  border-radius: 0.75rem;
+  label {
+    position: absolute;
+    top: 0.5625rem;
+    left: 0.875rem;
+    color: var(--six-text-color);
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+    }
+  .select {
+    background: none;
+    border-radius: 0;
+    &__placeholder-text {
+      padding: 1.625rem 0 0.75rem;
+      }
+    &__text {
+      padding: 1.625rem 0 0.75rem;
+      &:after {
+        right: 0.375rem;
+        }
+      }
+    &__dropdown {
+      left: -0.875rem;
+      right: -0.875rem;
       }
     }
   }
