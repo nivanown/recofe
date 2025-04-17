@@ -617,3 +617,20 @@ var swiper2 = new Swiper(".product-slider__big", {
         clickable: true,
     },
 });
+
+/*- user-info -*/
+function loadPhoto() {
+    var userPhoto = document.getElementById('user-photo');
+    var fileInput = document.getElementById('file-input');
+  
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        userPhoto.src = e.target.result;
+    };
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
