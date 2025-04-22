@@ -694,6 +694,10 @@ textarea::-webkit-input-placeholder {
     &:after {
       display: none;
       }
+    &.swiper-button-disabled {
+      background: var(--secondary-background-color);
+      opacity: 1;
+      }
     }
   .swiper-button-next {
     position: relative;
@@ -722,6 +726,10 @@ textarea::-webkit-input-placeholder {
       }
     &:after {
       display: none;
+      }
+    &.swiper-button-disabled {
+      background: var(--secondary-background-color);
+      opacity: 1;
       }
     }
   }
