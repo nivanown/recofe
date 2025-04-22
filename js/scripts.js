@@ -634,3 +634,158 @@ function loadPhoto() {
         reader.readAsDataURL(file);
     }
 }
+
+/*- accordion-services -*/
+const serviceAccordions = document.querySelectorAll('.accordion-services .accordion-services__top-panel');
+
+serviceAccordions.forEach(panel => {
+    panel.addEventListener('click', function () {
+        const currentItem = this.closest('.accordion-services__item');
+        const currentContent = currentItem.querySelector('.accordion-services__content');
+        const parentAccordion = currentItem.closest('.accordion-services');
+        const allItems = parentAccordion.querySelectorAll('.accordion-services__item');
+
+        allItems.forEach(item => {
+            const topPanel = item.querySelector('.accordion-services__top-panel');
+            const content = item.querySelector('.accordion-services__content');
+
+            if (item !== currentItem) {
+                topPanel.classList.remove('active');
+                item.classList.remove('open');
+                content.style.maxHeight = null;
+            }
+        });
+
+        this.classList.toggle('active');
+        currentItem.classList.toggle('open');
+
+        if (currentContent.style.maxHeight) {
+            currentContent.style.maxHeight = null;
+        } else {
+            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+        }
+    });
+});
+
+/*- models-slider -*/
+var swiper = new Swiper(".models-slider", {
+    autoplay: false,
+    autoHeight: false,
+    loop: true,
+    slidesPerView: 5,
+    slidesPerGroup: 1,
+    spaceBetween: false,
+    breakpoints: {
+    0: {
+        slidesPerView: 2,
+        spaceBetween: false,
+        slidesPerGroup: 2,
+        },
+    460: {
+        slidesPerView: 2,
+        spaceBetween: false,
+        slidesPerGroup: 2,
+        },
+    767: {
+        slidesPerView: 5,
+        spaceBetween: false,
+        },
+    1079: {
+        slidesPerView: 5,
+        spaceBetween: false,
+        },
+    },
+    navigation: {
+        nextEl: "#models-slider-btns .swiper-button-next",
+        prevEl: "#models-slider-btns .swiper-button-prev",
+    },
+});
+
+/*- repair-calendar-slider -*/
+var swiper = new Swiper(".repair-calendar-slider", {
+    autoplay: false,
+    autoHeight: false,
+    loop: false,
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: false,
+    breakpoints: {
+        0: {
+            slidesPerView: 2,
+            spaceBetween: false,
+            slidesPerGroup: 2,
+        },
+        460: {
+            slidesPerView: 2,
+            spaceBetween: false,
+            slidesPerGroup: 2,
+        },
+        767: {
+            slidesPerView: 3,
+            spaceBetween: false,
+        },
+        1079: {
+            slidesPerView: 3,
+            spaceBetween: false,
+        },
+    },
+    navigation: {
+        nextEl: "#repair-calendar-slider-btns .swiper-button-next",
+        prevEl: "#repair-calendar-slider-btns .swiper-button-prev",
+    },
+    on: {
+        slideChange: updateMonthsPanel
+    }
+});
+
+/*- months-panel -*/
+/*- months-panel -*/
+function updateMonthsPanel() {
+    if (!document.querySelector('.months-panel')) return;
+
+    const monthsItems = document.querySelectorAll('.months-panel__item');
+    const lineIn = document.querySelector('.months-panel__line-in');
+    const container = document.querySelector('.months-panel__list');
+
+    if (!monthsItems.length || !lineIn || !container || typeof swiper === 'undefined') return;
+
+    const activeIndex = swiper.activeIndex;
+    const slidesPerView = swiper.params.slidesPerView;
+    const currentGroupIndex = Math.floor(activeIndex / slidesPerView);
+
+    monthsItems.forEach(item => {
+        item.classList.remove('active', 'passed');
+    });
+
+    for (let i = 2; i < monthsItems.length; i += 3) {
+        if (Math.floor(i / 3) <= currentGroupIndex) {
+            monthsItems[i].classList.add('active');
+        }
+    }
+
+    const lastIndexInCurrentGroup = (currentGroupIndex + 1) * slidesPerView - 1;
+    monthsItems.forEach((item, index) => {
+        if (
+            index <= lastIndexInCurrentGroup &&
+            !item.classList.contains('selected')
+        ) {
+            item.classList.add('passed');
+        }
+    });
+
+    const activeItems = document.querySelectorAll('.months-panel__item.active');
+    if (activeItems.length > 0) {
+        const lastActive = activeItems[activeItems.length - 1];
+        const containerRect = container.getBoundingClientRect();
+        const lastRect = lastActive.getBoundingClientRect();
+
+        const widthInPixels = lastRect.right - containerRect.left;
+        const totalWidth = containerRect.width;
+        const percentWidth = (widthInPixels / totalWidth) * 100;
+        lineIn.style.width = `${percentWidth}%`;
+    } else {
+        lineIn.style.width = `0%`;
+    }
+}
+
+updateMonthsPanel();
