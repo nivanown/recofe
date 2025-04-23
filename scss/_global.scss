@@ -195,6 +195,19 @@ textarea {
   transition: .5s all;
   overflow: auto;
   resize: none;
+  &.textarea {
+    padding: 15px 14px;
+    height: 160px;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 12px;
+    &::-moz-placeholder {
+      color: var(--primary-text-color);
+      }
+    &::-webkit-input-placeholder {
+      color: var(--primary-text-color);
+      }
+    }
   }
 
 textarea:focus {
@@ -257,11 +270,17 @@ textarea::-webkit-input-placeholder {
       }
     }
   label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 10px;
     margin: 0;
     padding: 0.125rem 0 0;
     color: var(--primary-text-color);
     font-size: 1rem;
     line-height: 1.25rem;
+    span {
+      color: var(--tertiary-text-color);
+      }
     }
   }
 
