@@ -701,6 +701,55 @@ var swiper = new Swiper(".models-slider", {
     },
 });
 
+/*- switch-input -*/
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".switch-input").forEach(switchInput => {
+        const input = switchInput.querySelector("input");
+        const numberDisplay = switchInput.querySelector(".switch-input__number");
+        const btnAdd = switchInput.querySelector(".switch-input__add");
+        const btnRemove = switchInput.querySelector(".switch-input__remove");
+
+        const updateDisplay = (value) => {
+            value = Math.max(0, Math.min(999, value));
+            input.value = value;
+            numberDisplay.textContent = value;
+            btnRemove.classList.toggle("disabled", value === 0);
+        };
+
+        const initialValue = parseInt(input.value, 10) || 0;
+        updateDisplay(initialValue);
+
+        btnAdd.onclick = () => {
+            let value = parseInt(input.value, 10) || 0;
+            if (value < 999) {
+                updateDisplay(value + 1);
+            }
+        };
+
+        btnRemove.addEventListener("click", () => {
+            let value = parseInt(input.value, 10) || 0;
+            if (value > 0) {
+                updateDisplay(value - 1);
+            }
+        });
+
+        input.addEventListener("input", () => {
+            const value = parseInt(input.value, 10);
+            if (!isNaN(value)) {
+                updateDisplay(value);
+            }
+        });
+    });
+});
+
+/*- shopping-cart -*/
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.shopping-cart__left-col').forEach(el => {
+    const checkboxList = el.querySelector('.shopping-cart__checkbox-list');
+    el.classList.toggle('flex-start', !!checkboxList);
+  });
+});
+
 /*- repair-calendar-slider -*/
 var swiper = new Swiper(".repair-calendar-slider", {
     autoplay: false,
@@ -738,7 +787,6 @@ var swiper = new Swiper(".repair-calendar-slider", {
     }
 });
 
-/*- months-panel -*/
 /*- months-panel -*/
 function updateMonthsPanel() {
     if (!document.querySelector('.months-panel')) return;
