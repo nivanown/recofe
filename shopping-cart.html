@@ -139,138 +139,265 @@
                                 <a href="#">Главная</a>
                             </li>
                             <li>
-                                <span>Личный кабаинет</span>
+                                <span>Корзина</span>
                             </li>
                         </ul>
                     </nav>
-                    <div class="personal-account">
-                         <div class="user-widget">
-                            <div class="user-info">
-                                <div class="user-info__photo">
-                                    <img id="user-photo" src="img/src/user-demo-img.svg" alt="photo">
+                    <h1 class="big-title">Оформление заказа</h1>
+                    <div class="shopping-cart">
+                        <div class="shopping-cart__item">
+                            <div class="shopping-cart__left-col">
+                                <div class="shopping-cart__img">
+                                    <img src="img/src/product-img-1-sm.png" alt="img">
                                 </div>
-                                <div class="user-info__description">
-                                    <span class="user-info__name">Иванов Иван</span>
-                                    <input type="file" id="file-input" onchange="loadPhoto()">
-                                    <label for="file-input" class="user-info__load">Загрузить фото</label>
+                                <div class="shopping-cart__description">
+                                    <span class="shopping-cart__title">
+                                        <a href="#">Заварочный блок Delonghi</a>
+                                    </span>
+                                    <div class="shopping-cart__checkbox-list">
+                                        <div class="checkbox">
+                                            <input id="checkbox-1" type="checkbox">
+                                            <label for="checkbox-1">Чистка гидросистемы<span>3 300 ₽</span></label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input id="checkbox-2" type="checkbox">
+                                            <label for="checkbox-2">Чистка гидросистемы<span>3 300 ₽</span></label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input id="checkbox-3" type="checkbox">
+                                            <label for="checkbox-3">Чистка гидросистемы<span>3 300 ₽</span></label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <nav class="account-nav">
-                                <ul>
-                                    <li class="active">
-                                        <a href="#">Мои данные</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Мои заказы</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Выход</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <div class="manager-info">
-                                <div class="manager-info__top-panel">
-                                    <div class="manager-info__photo">
-                                        <img src="img/src/author-img.jpg" alt="photo">
+                            <div class="shopping-cart__right-col">
+                                <div class="switch-input">
+                                    <span class="switch-input__remove disabled">Убрать</span>
+                                    <div class="switch-input__in">
+                                        <input type="text" value="1">
+                                        <span class="switch-input__number"></span>
                                     </div>
-                                    <div class="manager-info__description">
-                                        <span class="manager-info__name">Иванов Иван</span>
-                                        <span class="manager-info__post">Ваш менеджер</span>
-                                    </div>
+                                    <span class="switch-input__add">Добавить</span>
                                 </div>
-                                <a href="#" class="manager-info__phone">
-                                    <img src="img/icons/phone-i.svg" alt="photo">
-                                    <span>+7 (495) 431-50-50</span>
-                                </a>
+                                <div class="shopping-cart__price-col">
+                                    <span class="shopping-cart__price">3 300 ₽</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="personal-account__description">
-                            <h1 class="big-title">Мои данные</h1>
-                            <div class="personal-account__form">
-                                <form>
-                                    <fieldset>
-                                        <h3 class="personal-account__title">Контактные данные</h3>
-                                        <ul class="personal-account__form-list">
-                                            <li>
-                                                <div class="input-field">
-                                                    <input id="mail" type="email" value="email@example.com" autocomplete="off" required>
-                                                    <label for="mail">Email</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="input-field">
-                                                    <input id="tel" class="phone-input" type="tel" value="8 (999) 999-99-99" autocomplete="off" required>
-                                                    <label for="tel">Телефон</label>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </fieldset>
-                                    <fieldset>
-                                        <h3 class="personal-account__title">Адрес доставки</h3>
-                                        <ul class="personal-account__form-list">
-                                            <li>
-                                                <div class="input-field">
-                                                    <input id="name" type="text" value="Иван" autocomplete="off" required>
-                                                    <label for="name">Имя</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="input-field">
-                                                    <input id="surname" type="text" value="Иванов" autocomplete="off" required>
-                                                    <label for="surname">Фамилия</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="input-field">
-                                                    <input id="city" type="text" value="Москва" autocomplete="off" required>
-                                                    <label for="city">Город</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="select-field">
-                                                    <div class="select">
-                                                        <input id="region" type="text" value="Московская область" autocomplete="off" required>
-                                                        <span class="select__placeholder-text">Выберите регион</span>
-                                                        <span class="select__text"></span>
-                                                        <div class="select__dropdown">
-                                                            <div class="vertical-scroll swiper">
-                                                                <div class="swiper-wrapper">
-                                                                    <div class="swiper-slide">
-                                                                        <ul>
-                                                                            <li>Московская область</li>
-                                                                            <li>Ленинградская область</li>
-                                                                            <li>Новосибирская область</li>
-                                                                            <li>Свердловская область</li>
-                                                                            <li>Челябинская область</li>
-                                                                            <li>Краснодарский край</li>
-                                                                            <li>Ростовская область</li>
-                                                                            <li>Тюменская область</li>
-                                                                            <li>Башкортостан</li>
-                                                                            <li>Нижегородская область</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="swiper-scrollbar"></div>
-                                                            </div>
+                        <div class="shopping-cart__item">
+                            <div class="shopping-cart__left-col">
+                                <div class="shopping-cart__img">
+                                    <img src="img/src/product-img-1-sm.png" alt="img">
+                                </div>
+                                <div class="shopping-cart__description">
+                                    <span class="shopping-cart__title">
+                                        <a href="#">Жидкость для удаления накипи для Delonghi</a>
+                                    </span>
+                                    <dl class="shopping-cart__characteristic">
+                                        <dt>Объем:</dt>
+                                        <dd>300мл</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="shopping-cart__right-col">
+                                <div class="switch-input">
+                                    <span class="switch-input__remove disabled">Убрать</span>
+                                    <div class="switch-input__in">
+                                        <input type="text" value="1">
+                                        <span class="switch-input__number"></span>
+                                    </div>
+                                    <span class="switch-input__add">Добавить</span>
+                                </div>
+                                <div class="shopping-cart__price-col">
+                                    <span class="shopping-cart__price">3 300 ₽</span>
+                                    <del>3 300 ₽</del>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shopping-cart__item">
+                            <div class="shopping-cart__left-col">
+                                <div class="shopping-cart__img">
+                                    <img src="img/src/service-img.jpg" alt="img">
+                                </div>
+                                <div class="shopping-cart__description">
+                                    <span class="shopping-cart__title">
+                                        <a href="#">Диагностика суперавтоматической кофемашины</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="shopping-cart__right-col">
+                                <div class="switch-input">
+                                    <span class="switch-input__remove disabled">Убрать</span>
+                                    <div class="switch-input__in">
+                                        <input type="text" value="1">
+                                        <span class="switch-input__number"></span>
+                                    </div>
+                                    <span class="switch-input__add">Добавить</span>
+                                </div>
+                                <div class="shopping-cart__price-col">
+                                    <span class="shopping-cart__price">3 300 ₽</span>
+                                    <del>3 300 ₽</del>
+                                </div>
+                            </div>
+                        </div>
+                        <dl class="shopping-cart__total">
+                            <dt>Итого</dt>
+                            <dd>9 999 ₽</dd>
+                        </dl>
+                    </div>
+                    <div class="details">
+                        <form>
+                            <div class="details__in">
+                                <div class="details__form">
+                                    <div class="details__form-in">
+                                        <div class="details__form-item">
+                                            <h3 class="details__title">Покупатель</h3>
+                                            <ul class="details__form-list">
+                                                <li>
+                                                    <div class="input-field">
+                                                        <input id="mail" type="email" value="email@example.com" autocomplete="off" required="">
+                                                        <label for="mail">Email</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="input-field">
+                                                        <input id="tel" class="phone-input" type="tel" value="8 (999) 999-99-99" autocomplete="off" required="">
+                                                        <label for="tel">Телефон</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="details__form-item">
+                                            <div class="details__col">
+                                                <div class="details__col-item">
+                                                    <h4 class="details__title">Способ получения</h4>
+                                                    <div class="radio-panel">
+                                                        <div class="radio-btn">
+                                                            <input id="delivery" type="radio" name="method-receipt" checked>
+                                                            <label for="delivery">Доставка по Москве</label>
+                                                        </div>
+                                                        <div class="radio-btn">
+                                                            <input id="pickup" type="radio" name="method-receipt">
+                                                            <label for="pickup">Самовывоз</label>
                                                         </div>
                                                     </div>
-                                                    <label for="region">Регион</label>
                                                 </div>
+                                                <div class="details__col-item">
+                                                    <h4 class="details__title">Способ оплаты</h4>
+                                                    <div class="radio-panel">
+                                                        <div class="radio-btn">
+                                                            <input id="cash" type="radio" name="payments">
+                                                            <label for="cash">Наличными</label>
+                                                        </div>
+                                                        <div class="radio-btn">
+                                                            <input id="card" type="radio" name="payments" checked>
+                                                            <label for="card">Банковской картой</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="details__form-item">
+                                            <h3 class="details__title">Адрес доставки</h3>
+                                            <ul class="details__form-list">
+                                                <li>
+                                                    <div class="input-field">
+                                                        <input id="name" type="text" value="Иван" autocomplete="off" required>
+                                                        <label for="name">Имя</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="input-field">
+                                                        <input id="surname" type="text" value="Иванов" autocomplete="off" required>
+                                                        <label for="surname">Фамилия</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="input-field">
+                                                        <input id="city" type="text" value="Москва" autocomplete="off" required>
+                                                        <label for="city">Город</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="select-field">
+                                                        <div class="select">
+                                                            <input id="region" type="text" value="Московская область" autocomplete="off" required>
+                                                            <span class="select__placeholder-text">Выберите регион</span>
+                                                            <span class="select__text"></span>
+                                                            <div class="select__dropdown">
+                                                                <div class="vertical-scroll swiper">
+                                                                    <div class="swiper-wrapper">
+                                                                        <div class="swiper-slide">
+                                                                            <ul>
+                                                                                <li>Московская область</li>
+                                                                                <li>Ленинградская область</li>
+                                                                                <li>Новосибирская область</li>
+                                                                                <li>Свердловская область</li>
+                                                                                <li>Челябинская область</li>
+                                                                                <li>Краснодарский край</li>
+                                                                                <li>Ростовская область</li>
+                                                                                <li>Тюменская область</li>
+                                                                                <li>Башкортостан</li>
+                                                                                <li>Нижегородская область</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="swiper-scrollbar"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <label for="region">Регион</label>
+                                                    </div>
+                                                </li>
+                                                <li class="full-size">
+                                                    <div class="input-field">
+                                                        <input id="region" type="text" value="Пятницкое шоссе, д.42, кв.147" autocomplete="off" required>
+                                                        <label for="region">Адрес</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="details__form-item">
+                                            <h3 class="details__title">Комментарий</h3>
+                                            <textarea class="textarea" placeholder="Комментарий"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="total-widget">
+                                    <div class="total-widget__in">
+                                        <dl class="total-widget__price">
+                                            <dt>Итого</dt>
+                                            <dd>
+                                                <span>9 999 ₽</span>
+                                                <del>10 999 ₽</del>
+                                            </dd>
+                                        </dl>
+                                        <ul class="sm-price-list">
+                                            <li>
+                                                <span class="sm-price-list__title">Товары</span>
+                                                <span class="sm-price-list__border"></span>
+                                                <span class="sm-price-list__price">3 300 ₽</span>
                                             </li>
-                                            <li class="full-size">
-                                                <div class="input-field">
-                                                    <input id="region" type="text" value="Пятницкое шоссе, д.42, кв.147" autocomplete="off" required>
-                                                    <label for="region">Адрес</label>
-                                                </div>
+                                            <li>
+                                                <span class="sm-price-list__title">Услуги</span>
+                                                <span class="sm-price-list__border"></span>
+                                                <span class="sm-price-list__price">3 300 ₽</span>
+                                            </li>
+                                            <li>
+                                                <span class="sm-price-list__title">Доставка</span>
+                                                <span class="sm-price-list__border"></span>
+                                                <span class="sm-price-list__price">3 300 ₽</span>
                                             </li>
                                         </ul>
-                                    </fieldset>
-                                    <fieldset>
-                                        <button class="btn" type="submit">Сохранить изменения</button>
-                                    </fieldset>
-                                </form>
+                                        <div class="promo-code">
+                                            <input type="text" placeholder="Промокод">
+                                            <button class="promo-code__btn">Применить</button>
+                                        </div>
+                                        <button class="btn btn_full-size" type="submit">Оформить заказ</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </section>
