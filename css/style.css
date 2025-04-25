@@ -6016,6 +6016,199 @@ input[type=range]::-moz-range-thumb {
 
 /* modal */
 /* mobile-menu */
+.mobile-menu {
+  position: fixed;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px 16px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: var(--secondary-background-color);
+  z-index: 50;
+}
+.mobile-menu__item.active .mobile-menu__icon svg {
+  fill: var(--secondary-text-color);
+}
+.mobile-menu__item.active .mobile-menu__text {
+  color: var(--primary-text-color);
+}
+.mobile-menu__item.active .mobile-menu__dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-menu__item-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px 0;
+  cursor: pointer;
+}
+.mobile-menu__icon {
+  display: block;
+  width: 24px;
+}
+.mobile-menu__icon svg {
+  width: 100%;
+  vertical-align: top;
+  fill: var(--tertiary-text-color);
+  transition: 0.5s fill;
+}
+.mobile-menu__text {
+  display: block;
+  color: var(--tertiary-text-color);
+  font-size: 12px;
+  text-align: center;
+  line-height: 15px;
+}
+.mobile-menu__dropdown {
+  position: fixed;
+  padding: 30px 16px 16px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 72px;
+  background: var(--primary-background-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s all;
+}
+.mobile-menu__dropdown-in {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* callback */
+#callback .mobile-menu__dropdown-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* services-nav */
+.services-nav li {
+  font-size: 16px;
+  line-height: 20px;
+  border-bottom: 1px solid var(--primary-border-color);
+}
+.services-nav li:first-child {
+  border-top: 1px solid var(--primary-border-color);
+}
+.services-nav a {
+  position: relative;
+  display: block;
+  padding: 18px 35px 18px 0;
+  color: var(--primary-text-color);
+}
+.services-nav a:after {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 14px;
+  top: 50%;
+  right: 9px;
+  transform: translateY(-50%);
+  background: url(../img/icons/services-nav-arrow.svg) center no-repeat;
+  background-size: 100%;
+  content: "";
+}
+
+/* phone-panel */
+.phone-panel {
+  display: flex;
+  align-items: center;
+  gap: 0 16px;
+}
+.phone-panel img {
+  flex-shrink: 0;
+  width: 30px;
+}
+.phone-panel__description {
+  display: flex;
+  flex-direction: column;
+  gap: 6px 0;
+  width: 100%;
+}
+.phone-panel__tel {
+  display: block;
+}
+.phone-panel__tel {
+  display: block;
+  color: var(--primary-text-color);
+  font-size: 20px;
+  font-family: var(--secondary-font-family);
+  font-weight: var(--quaternary-font-weight);
+  line-height: 20px;
+  letter-spacing: -3%;
+}
+.phone-panel__working-hours {
+  display: block;
+  color: var(--tertiary-text-color);
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* mobile-messengers */
+.mobile-messengers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 10px;
+}
+.mobile-messengers__item {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+  padding: 13px 16px;
+  background: var(--quaternary-background-color);
+  border-radius: 12px;
+}
+.mobile-messengers__item img {
+  flex-shrink: 0;
+  width: 24px;
+}
+.mobile-messengers__text {
+  display: block;
+  color: var(--primary-text-color);
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* email-link */
+.email-link {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+.email-link img {
+  flex-shrink: 0;
+  width: 24px;
+}
+.email-link__text {
+  display: block;
+  color: var(--primary-text-color);
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* mobile-callback */
+.mobile-callback {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  padding: 24px;
+  background: var(--secondary-background-color);
+  border-radius: 24px;
+}
+.mobile-callback__bnts-col {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+.mobile-callback__bnts-col .btn {
+  padding: 1.1875rem 0;
+}
+
 /* 1272 */
 @media (max-width: 1272px) {
   html {
@@ -6033,5 +6226,9 @@ input[type=range]::-moz-range-thumb {
   .categories__img {
     width: 12.5rem;
     height: 8.125rem;
+  }
+  /* mobile-menu */
+  .mobile-menu {
+    display: flex;
   }
 }
