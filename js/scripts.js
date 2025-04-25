@@ -750,6 +750,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/*- mobile-menu -*/
+document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = document.querySelectorAll('.mobile-menu__item');
+
+    menuItems.forEach(item => {
+        const dropdown = item.querySelector('.mobile-menu__dropdown');
+        const clickable = item.querySelector('.mobile-menu__item-in');
+
+        if (dropdown && clickable) {
+            clickable.addEventListener('click', (e) => {
+                e.stopPropagation(); // Не даём событию всплыть
+
+                const isActive = item.classList.contains('active');
+
+                // Удаляем active у всех
+                menuItems.forEach(i => i.classList.remove('active'));
+
+                // Если был неактивен — активируем
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
 /*- repair-calendar-slider -*/
 var swiper = new Swiper(".repair-calendar-slider", {
     autoplay: false,
