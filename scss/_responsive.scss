@@ -50,6 +50,12 @@ html {
     }
   }
 
+.search-form {
+  input[type="text"] {
+    height: 3.625rem;
+    }
+  }
+
 input[type='tel'],   
 input[type='text'],
 input[type='email'],
