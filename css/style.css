@@ -6360,6 +6360,9 @@ input[type=range]::-moz-range-thumb {
   .header__md-panel .user-panel {
     display: none;
   }
+  .search-form input[type=text] {
+    height: 3.625rem;
+  }
   input[type=tel],
   input[type=text],
   input[type=email],
