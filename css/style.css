@@ -174,7 +174,7 @@ body.index {
   background-size: 100%;
 }
 body.scroll-hidden {
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* p */
@@ -6333,6 +6333,9 @@ input[type=range]::-moz-range-thumb {
   body.index {
     background: url(../img/bg/dec-bg-mob.png) top center no-repeat;
     background-size: 100%;
+  }
+  body.scroll-hidden {
+    overflow: hidden;
   }
   html {
     font-size: 4.27vw;
