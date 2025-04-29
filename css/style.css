@@ -6097,26 +6097,22 @@ input[type=range]::-moz-range-thumb {
 /* modal */
 /* mobile-dropdown */
 .mobile-dropdown {
-  position: fixed;
+  position: absolute;
   display: none;
   padding: 1.25rem 1rem 3.125rem;
   width: 100%;
   top: 4.375rem;
-  bottom: 0;
   border-top: 0.0625rem solid var(--primary-border-color);
   background: var(--primary-background-color);
   z-index: 60;
   opacity: 0;
   visibility: hidden;
   transition: 0.5s all;
+  box-shadow: 0 0 0.3125rem 0.0625rem #1a1a1a;
 }
 .mobile-dropdown.show {
   opacity: 1;
   visibility: visible;
-}
-.mobile-dropdown__in {
-  height: 100%;
-  overflow-y: auto;
 }
 .mobile-dropdown__info-col {
   display: flex;
