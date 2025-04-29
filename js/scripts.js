@@ -98,14 +98,10 @@ var swiper = new Swiper(".services-slider", {
     spaceBetween: false,
     breakpoints: {
     0: {
-        slidesPerView: 2,
+        loop: false,
+        slidesPerView: "auto",
         spaceBetween: false,
-        slidesPerGroup: 2,
-        },
-    460: {
-        slidesPerView: 2,
-        spaceBetween: false,
-        slidesPerGroup: 2,
+        slidesPerGroup: true,
         },
     767: {
         slidesPerView: 4,
@@ -171,17 +167,17 @@ var swiper = new Swiper(".offers-slider", {
     spaceBetween: false,
     breakpoints: {
     0: {
-        slidesPerView: 2,
+        loop: false,
+        slidesPerView: "auto",
         spaceBetween: false,
-        slidesPerGroup: 2,
-        },
-    460: {
-        slidesPerView: 2,
-        spaceBetween: false,
-        slidesPerGroup: 2,
+        slidesPerGroup: true,
         },
     767: {
-        slidesPerView: 2,
+        slidesPerView: 4,
+        spaceBetween: false,
+        },
+    1079: {
+        slidesPerView: 4,
         spaceBetween: false,
         },
     },
@@ -231,14 +227,10 @@ var swiper = new Swiper(".products-slider", {
     spaceBetween: false,
     breakpoints: {
     0: {
-        slidesPerView: 2,
+        loop: false,
+        slidesPerView: "auto",
         spaceBetween: false,
-        slidesPerGroup: 2,
-        },
-    460: {
-        slidesPerView: 2,
-        spaceBetween: false,
-        slidesPerGroup: 2,
+        slidesPerGroup: true,
         },
     767: {
         slidesPerView: 4,
@@ -265,14 +257,10 @@ var swiper = new Swiper(".masters-slider", {
     spaceBetween: false,
     breakpoints: {
     0: {
-        slidesPerView: 2,
+        loop: false,
+        slidesPerView: "auto",
         spaceBetween: false,
-        slidesPerGroup: 2,
-        },
-    460: {
-        slidesPerView: 2,
-        spaceBetween: false,
-        slidesPerGroup: 2,
+        slidesPerGroup: true,
         },
     767: {
         slidesPerView: 4,
@@ -376,31 +364,59 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /*- reviews-list -*/
-document.addEventListener('DOMContentLoaded', () => {
-    const reviewsList = document.querySelector('.reviews-list');
-    if (!reviewsList) return;
+(function () {
+    let isActive = false;
+    let cleanup = null;
 
-    const allReviews = reviewsList.querySelectorAll('.review');
-    if (!allReviews.length) return;
+    function initReviews() {
+        const reviewsList = document.querySelector('.reviews-list');
+        if (!reviewsList) return;
 
-    const btnPanel = document.querySelector('.reviews-btn-panel');
+        const allReviews = reviewsList.querySelectorAll('.review');
+        if (!allReviews.length) return;
 
-    allReviews.forEach((review, index) => {
-        if (index >= 9) {
-            review.classList.add('hidden');
-        } else {
-            review.classList.remove('hidden');
-        }
-    });
+        const btnPanel = document.querySelector('.reviews-btn-panel');
+        if (!btnPanel) return;
 
-    if (btnPanel) {
-        btnPanel.addEventListener('click', () => {
+        allReviews.forEach((review, index) => {
+            if (index >= 9) {
+                review.classList.add('hidden');
+            } else {
+                review.classList.remove('hidden');
+            }
+        });
+
+        const clickHandler = () => {
             allReviews.forEach(review => review.classList.remove('hidden'));
             btnPanel.classList.add('hidden');
             reviewsList.classList.add('no-dec');
-        });
+        };
+
+        btnPanel.addEventListener('click', clickHandler);
+
+        isActive = true;
+        cleanup = () => {
+            btnPanel.removeEventListener('click', clickHandler);
+            allReviews.forEach(review => review.classList.remove('hidden'));
+            btnPanel.classList.remove('hidden');
+            reviewsList.classList.remove('no-dec');
+            isActive = false;
+        };
     }
-});
+
+    function handleResize() {
+        const isWide = window.innerWidth > 767;
+
+        if (isWide && !isActive) {
+            initReviews();
+        } else if (!isWide && isActive) {
+            cleanup?.();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', handleResize);
+    window.addEventListener('resize', handleResize);
+})();
 
 /*- map -*/
 if (document.getElementById('map')) {
@@ -750,9 +766,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/*- mobile-dropdown -*/
+const mobileBtn = document.querySelector('.mobile-btn');
+const mobileDropdown = document.querySelector('.mobile-dropdown');
+const body = document.body;
+const header = document.querySelector('.header');
+
+if (mobileBtn && mobileDropdown && header) {
+    mobileBtn.addEventListener('click', () => {
+        const isOpen = mobileDropdown.classList.contains('show');
+
+        if (isOpen) {
+            mobileDropdown.classList.remove('show');
+            body.classList.remove('scroll-hidden');
+            header.classList.remove('active');
+            mobileBtn.classList.remove('open');
+        } else {
+            mobileDropdown.classList.add('show');
+            body.classList.add('scroll-hidden');
+            header.classList.add('active');
+            mobileBtn.classList.add('open');
+        }
+    });
+}
+
 /*- mobile-menu -*/
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.mobile-menu__item');
+    const body = document.body;
 
     menuItems.forEach(item => {
         const dropdown = item.querySelector('.mobile-menu__dropdown');
@@ -760,16 +801,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (dropdown && clickable) {
             clickable.addEventListener('click', (e) => {
-                e.stopPropagation(); // Не даём событию всплыть
-
+                e.stopPropagation();
                 const isActive = item.classList.contains('active');
-
-                // Удаляем active у всех
                 menuItems.forEach(i => i.classList.remove('active'));
-
-                // Если был неактивен — активируем
+                body.classList.remove('scroll-hidden');
                 if (!isActive) {
                     item.classList.add('active');
+                    body.classList.add('scroll-hidden');
                 }
             });
         }
@@ -862,4 +900,80 @@ function updateMonthsPanel() {
     }
 }
 
-updateMonthsPanel();
+(function () {
+    updateMonthsPanel();
+})();
+
+/*- malfunctions -*/
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelector('.malfunctions');
+    if (!container) return;
+
+    const items = container.querySelectorAll('.malfunctions__item');
+    const button = container.querySelector('.btn');
+
+    let isActive = false;
+    let isExpanded = false;
+
+    function applyBehavior() {
+        if (items.length <= 2) {
+            button.style.display = 'none';
+            return;
+        }
+
+        items.forEach((item, index) => {
+            item.classList.toggle('hidden', index > 1);
+        });
+
+        button.textContent = 'Показать все';
+        button.style.display = 'inline-block';
+        isExpanded = false;
+
+        button.addEventListener('click', toggleItems);
+        isActive = true;
+    }
+
+    function removeBehavior() {
+        items.forEach(item => item.classList.remove('hidden'));
+        button.textContent = 'Показать все';
+        button.style.display = 'none';
+
+        button.removeEventListener('click', toggleItems);
+        isActive = false;
+    }
+
+    function toggleItems() {
+        isExpanded = !isExpanded;
+        items.forEach((item, index) => {
+            if (index > 1) {
+                item.classList.toggle('hidden', !isExpanded);
+            }
+        });
+        button.textContent = isExpanded ? 'Скрыть' : 'Показать все';
+    }
+
+    function handleResize() {
+        if (window.innerWidth <= 767 && !isActive) {
+            applyBehavior();
+        } else if (window.innerWidth > 767 && isActive) {
+            removeBehavior();
+        }
+    }
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+});
+
+/*- footer__nav -*/
+const navItems = document.querySelectorAll('.footer__nav-col-item');
+
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (item.classList.contains('open')) {
+            item.classList.remove('open');
+        } else {
+            navItems.forEach(i => i.classList.remove('open'));
+            item.classList.add('open');
+        }
+    });
+});
