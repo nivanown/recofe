@@ -2,7 +2,7 @@
 html {
   min-width: 20rem;
   min-height: 100%;
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.5;
   background: var(--primary-background-color);
   }
@@ -21,6 +21,9 @@ body {
   &.index {
     background: url(../img/bg/dec-bg.png) top center no-repeat;
     background-size: 100%;
+    }
+  &.scroll-hidden {
+    overflow: hidden;
     }
   }
 
@@ -761,11 +764,19 @@ textarea::-webkit-input-placeholder {
   padding: 0.6875rem 0.875rem;
   background: var(--secondary-background-color);
   border-radius: 0.75rem;
-  .messengers__item {
-    a {
-      background: var(--quaternary-background-color);
-      &:hover {
-        background: var(--tertiary-background-color);
+  .messengers {
+    &__item {
+      width: 1.875rem;
+      a {
+        width: 1.875rem;
+        height: 1.875rem;
+        background: var(--quaternary-background-color);
+        &:hover {
+          background: var(--tertiary-background-color);
+          }
+        }
+      img {
+        width: 100%;
         }
       }
     }

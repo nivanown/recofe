@@ -225,3 +225,47 @@
 			}
 		}
 	}
+
+/* mobile-btn */
+.mobile-btn {
+	position: relative;
+	display: none;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	&:before {
+		position: absolute;
+		display: block;
+		width: 1.5rem;
+		height: 1.5rem;
+		top: 0;
+		left: 0;
+		background: url(../img/icons/mobile-menu.svg) center no-repeat;
+	  background-size: 100%;
+		cursor: pointer;
+		content: "";
+		transition: .5s opacity;
+		}
+	&:after {
+		position: absolute;
+		display: block;
+		width: 1.5rem;
+		height: 1.5rem;
+		top: 0;
+		left: 0;
+		background: url(../img/icons/mobile-menu-close.svg) center no-repeat;
+	  background-size: 100%;
+		cursor: pointer;
+		content: "";
+		opacity: 0;
+		transition: .5s opacity;
+		}
+	&.open {
+		&:before {
+			opacity: 0;
+			}
+		&:after {
+			opacity: 1;
+			}
+		}
+	}
