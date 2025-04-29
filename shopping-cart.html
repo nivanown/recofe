@@ -90,8 +90,13 @@
                             </a>
                         </div>
                     </div>
+                    <span class="mobile-btn"></span>
                 </div>
-                <nav class="main-nav">
+                <nav class="main-nav"
+                    data-breakpoints="767" 
+                    data-targets=".mobile-dropdown__in" 
+                    data-references=".mobile-dropdown__info-col" 
+                    data-positions="before">
                     <ul>
                         <li class="main-nav__services-link">
                             <a href="#">Услуги</a>
@@ -108,8 +113,8 @@
                         <li>
                             <a href="#">О компании</a>
                         </li>
-                        <li class="active">
-                            <span>Статьи</span>
+                        <li>
+                            <a href="#">Статьи</a>
                         </li>
                         <li>
                             <a href="#">Франшиза</a>
@@ -128,6 +133,40 @@
             </div>
         </header>
         <!-- header end -->
+
+        <!-- mobile-dropdown Start -->
+        <div class="mobile-dropdown">
+            <div class="mobile-dropdown__in">
+                <div class="mobile-dropdown__info-col">
+                    <div class="phone-panel">
+                        <img src="img/icons/phone-i.svg" alt="icons">
+                        <div class="phone-panel__description">
+                            <a href="tel:84951520888" class="phone-panel__tel">8 (495) 152-08-88</a>
+                            <span class="phone-panel__working-hours">Пн-Пт 10:00 - 21:00</span>
+                        </div>
+                    </div>
+                    <div class="mobile-messengers">
+                        <a href="#" class="mobile-messengers__item">
+                            <img src="img/icons/telegram-m.svg" alt="telegram">
+                            <span class="mobile-messengers__text">Telegram</span>
+                        </a>
+                        <a href="#" class="mobile-messengers__item">
+                            <img src="img/icons/whatsapp-m.svg" alt="whatsapp">
+                            <span class="mobile-messengers__text">Whatsapp</span>
+                        </a>
+                    </div>
+                    <span class="email-link">
+                        <img src="img/icons/email.svg" alt="img">
+                        <a href="mailto:info@recofe.ru" class="email-link__text">info@recofe.ru</a>
+                    </span>
+                    <div class="mobile-callback__bnts-col">
+                        <span class="btn btn_full-size">Вызов мастера</span>
+                        <span class="btn btn_full-size btn_color-light">Обратный звонок</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile-dropdown end -->
 
         <!-- mobile-menu Start -->
         <div class="mobile-menu">
