@@ -778,12 +778,10 @@ if (mobileBtn && mobileDropdown && header) {
 
         if (isOpen) {
             mobileDropdown.classList.remove('show');
-            body.classList.remove('scroll-hidden');
             header.classList.remove('active');
             mobileBtn.classList.remove('open');
         } else {
             mobileDropdown.classList.add('show');
-            body.classList.add('scroll-hidden');
             header.classList.add('active');
             mobileBtn.classList.add('open');
         }
