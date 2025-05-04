@@ -332,6 +332,7 @@
                     </div>
                     <div class="gl-col">
                         <aside class="sidebar">
+                            <span class="sidebar__close-btn">Закрыть</span>
                             <form>
                                 <div class="filter">
                                     <div class="filter__item">
@@ -632,6 +633,7 @@
                                     </div>
                                 </div>
                                 <span class="quantity">138 товаров</span>
+                                <span class="filter-mobile-btn">Фильтр</span>
                             </div>
                             <div class="products-list products-list_indent-bottom">
                                 <div class="product-item">
@@ -1106,6 +1108,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="service-centers__contact-mobile">
+                                        <span class="phone">
+                                            <a href="tel:8(495)1520888">8 (495) 152-08-88</a>
+                                        </span>
+                                        <span class="working-hours">Пн-Пт 10:00 - 21:00</span>
+                                    </div>
                                     <a href="#" class="map-link">
                                         <img src="img/icons/marker.svg" alt="icon">
                                         <span class="map-link__text">В карты</span>
@@ -1142,7 +1150,7 @@
                                 </div>
                                 <div class="service-centers__right-col">
                                     <span class="address">Производственная д. 8 к. 1 пом 17</span>
-                                    <div class="transport-list">
+                                    <div class="transport-list transport-list_second-pos">
                                         <div class="transport">
                                             <div class="transport__icon">
                                                 <img src="img/icons/metro.svg" alt="icon">
@@ -1163,6 +1171,12 @@
                                                 <span class="transport__time">14 мин</span>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="service-centers__contact-mobile">
+                                        <span class="phone">
+                                            <a href="tel:8(495)1520888">8 (495) 152-08-88</a>
+                                        </span>
+                                        <span class="working-hours">Пн-Пт 10:00 - 21:00</span>
                                     </div>
                                     <a href="#" class="map-link">
                                         <img src="img/icons/marker.svg" alt="icon">
@@ -1200,7 +1214,11 @@
                                 </picture>
                             </a>
                         </div>
-                        <div class="footer__contact">
+                        <div class="footer__contact"
+                            data-breakpoints="767" 
+                            data-targets=".footer__last-col" 
+                            data-references=".messengers-panel" 
+                            data-positions="after">
                             <span class="phone">
                                 <a href="tel:8(495)1520888">8 (495) 152-08-88</a>
                             </span>
