@@ -107,10 +107,6 @@ var swiper = new Swiper(".services-slider", {
         slidesPerView: 4,
         spaceBetween: false,
         },
-    1079: {
-        slidesPerView: 4,
-        spaceBetween: false,
-        },
     },
     navigation: {
         nextEl: "#services-slider-btns .swiper-button-next",
@@ -176,10 +172,6 @@ var swiper = new Swiper(".offers-slider", {
         slidesPerView: 4,
         spaceBetween: false,
         },
-    1079: {
-        slidesPerView: 4,
-        spaceBetween: false,
-        },
     },
     navigation: {
         nextEl: "#offers-slider-btns .swiper-button-next",
@@ -233,10 +225,6 @@ var swiper = new Swiper(".products-slider", {
         slidesPerGroup: true,
         },
     767: {
-        slidesPerView: 4,
-        spaceBetween: false,
-        },
-    1079: {
         slidesPerView: 4,
         spaceBetween: false,
         },
@@ -697,20 +685,12 @@ var swiper = new Swiper(".models-slider", {
     spaceBetween: false,
     breakpoints: {
     0: {
-        slidesPerView: 2,
+        loop: false,
+        slidesPerView: "auto",
         spaceBetween: false,
-        slidesPerGroup: 2,
-        },
-    460: {
-        slidesPerView: 2,
-        spaceBetween: false,
-        slidesPerGroup: 2,
+        slidesPerGroup: true,
         },
     767: {
-        slidesPerView: 5,
-        spaceBetween: false,
-        },
-    1079: {
         slidesPerView: 5,
         spaceBetween: false,
         },
@@ -826,20 +806,12 @@ var swiper = new Swiper(".repair-calendar-slider", {
     spaceBetween: false,
     breakpoints: {
         0: {
-            slidesPerView: 2,
+            loop: false,
+            slidesPerView: "auto",
             spaceBetween: false,
-            slidesPerGroup: 2,
-        },
-        460: {
-            slidesPerView: 2,
-            spaceBetween: false,
-            slidesPerGroup: 2,
+            slidesPerGroup: true,
         },
         767: {
-            slidesPerView: 3,
-            spaceBetween: false,
-        },
-        1079: {
             slidesPerView: 3,
             spaceBetween: false,
         },
@@ -1030,3 +1002,91 @@ navItems.forEach(item => {
     checkViewport();
     window.addEventListener('resize', checkViewport);
 })();
+
+/*- pricing-plans -*/
+function initAccordion() {
+  const titles = document.querySelectorAll('.pricing-plans__title');
+
+  titles.forEach(title => {
+    title.addEventListener('click', () => {
+      const item = title.closest('.pricing-plans__item');
+      const isAlreadyShown = item.classList.contains('show');
+      document.querySelectorAll('.pricing-plans__item.show').forEach(openItem => {
+        openItem.classList.remove('show');
+      });
+
+      if (!isAlreadyShown) {
+        item.classList.add('show');
+      }
+    });
+  });
+}
+
+function checkAccordionActivation() {
+  if (window.innerWidth <= 767 && window.innerWidth >= 320) {
+    initAccordion();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', checkAccordionActivation);
+
+window.addEventListener('resize', () => {
+    document.querySelectorAll('.pricing-plans__title').forEach(title => {
+        const newTitle = title.cloneNode(true);
+        title.parentNode.replaceChild(newTitle, title);
+    });
+    checkAccordionActivation();
+});
+
+/*- models-list -*/
+document.addEventListener('DOMContentLoaded', function () {
+    const minWidth = 320;
+    const maxWidth = 767;
+
+    function isInRange() {
+        const width = window.innerWidth;
+        return width >= minWidth && width <= maxWidth;
+    }
+
+    function setupModelList() {
+    const container = document.querySelector('.models-list');
+    if (!container) return;
+
+    const items = container.querySelectorAll('.models-list__item');
+    const button = container.querySelector('.btn');
+
+    if (!items.length || !button) return;
+
+    function applyInitialState() {
+        items.forEach((item, index) => {
+        if (index >= 2) {
+            item.classList.add('hidden');
+        } else {
+            item.classList.remove('hidden');
+            }
+        });
+        button.textContent = 'Показать все';
+    }
+
+    function toggleItems() {
+        const isExpanded = button.textContent === 'Скрыть';
+        if (isExpanded) {
+            applyInitialState();
+        } else {
+        items.forEach(item => item.classList.remove('hidden'));
+            button.textContent = 'Скрыть';
+        }
+    }
+
+    if (isInRange()) {
+        applyInitialState();
+        button.addEventListener('click', toggleItems);
+        }
+    }
+
+    setupModelList();
+
+    window.addEventListener('resize', () => {
+        location.reload();
+    });
+});
