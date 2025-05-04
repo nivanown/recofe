@@ -1786,6 +1786,7 @@
 	margin: 0 0 1.875rem;
 	ul {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: 0.625rem 0.625rem;
 		}
@@ -2148,13 +2149,13 @@
 
 /* widget-info */
 .widget-info {
+	width: 23.75rem;
 	&__in {
 		display: flex;
 		flex-direction: column;
 		flex-shrink: 0;
 		gap: 1rem 0;
 		padding: 1.875rem;
-		width: 23.75rem;
 		background: var(--secondary-background-color);
 		border-radius: 1.5rem;
 		}
@@ -2732,6 +2733,8 @@
 		a {
 			position: relative;
 			display: block;
+			width: 100%;
+			height: 100%;
 			&:before {
 				position: absolute;
 				display: block;
@@ -3295,6 +3298,7 @@ input[type="range"]::-moz-range-thumb {
   &__price {
   	color: var(--secondary-text-color);
 	  font-size: 2.25rem;
+	  font-family: var(--secondary-font-family);
 	  font-weight: var(--secondary-font-weight);
 	  line-height: 2.875rem;
 	  letter-spacing: -0.01875rem;
@@ -3338,6 +3342,7 @@ input[type="range"]::-moz-range-thumb {
   	}
   &__price {
   	font-size: 1.25rem;
+  	font-family: var(--secondary-font-family);
 	  font-weight: var(--secondary-font-weight);
 	  line-height: 1.625rem;
 	  letter-spacing: -3%;
