@@ -4873,7 +4873,6 @@ input[type=range]::-moz-range-thumb {
 .accordion-services__top-panel {
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 0 1.25rem;
   vertical-align: top;
   cursor: pointer;
@@ -4977,6 +4976,7 @@ input[type=range]::-moz-range-thumb {
 }
 .prices-services__more-link {
   display: block;
+  flex-shrink: 0;
   width: 1.5rem;
   height: 1.5rem;
   font-size: 0;
@@ -5199,6 +5199,11 @@ input[type=range]::-moz-range-thumb {
   font-size: 1rem;
   line-height: 1.25rem;
 }
+.pricing-plans__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .pricing-plans__title {
   margin: 0 0 0.625rem;
   font-size: 2rem;
@@ -5380,6 +5385,8 @@ input[type=range]::-moz-range-thumb {
 }
 .model__img img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .model__title {
   display: block;
@@ -5424,6 +5431,9 @@ input[type=range]::-moz-range-thumb {
 .models-list ul li {
   font-size: 1rem;
   line-height: 1.25rem;
+}
+.models-list .btn {
+  display: none;
 }
 
 /* question */
@@ -8370,5 +8380,317 @@ input[type=range]::-moz-range-thumb {
     padding: 0.75rem 0;
     font-size: 0.875rem;
     line-height: 1.125rem;
+  }
+  .accordion-services__item {
+    padding: 12px 0;
+  }
+  .accordion-services__top-panel {
+    gap: 0 14px;
+    width: 100%;
+  }
+  .accordion-services__arrow {
+    width: 36px;
+    height: 36px;
+  }
+  .accordion-services__title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .accordion-services__number {
+    margin-left: auto;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .prices-services {
+    border-radius: 20px;
+  }
+  .prices-services__item {
+    padding: 16px;
+    gap: 0 16px;
+  }
+  .prices-services__title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .prices-services__right-col {
+    flex-shrink: 0;
+    gap: 0 6px;
+  }
+  .prices-services__price {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .months-panel {
+    display: none;
+  }
+  .repair-calendar-slider.swiper {
+    margin: 0 -1rem;
+    padding: 0 0.75rem;
+  }
+  .repair-calendar-slider .swiper-slide {
+    padding: 0 0.25rem;
+    width: 255px;
+  }
+  .top-panel p {
+    margin: 0;
+    color: var(--tertiary-text-color);
+  }
+  .repair-calendar {
+    padding: 20px;
+    border-radius: 24px;
+  }
+  .repair-calendar__title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .repair-calendar p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .warning {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .warning__text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .price-col {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px 0;
+  }
+  .price-col__number {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .price-col__text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .protection-panel {
+    flex-direction: column;
+    gap: 40px 0;
+    padding: 20px;
+  }
+  .protection-panel__description {
+    gap: 12px 0;
+  }
+  .protection-panel__title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .pricing-plans {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px 0;
+  }
+  .pricing-plans__item {
+    padding: 20px;
+  }
+  .pricing-plans__item p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .pricing-plans__item.show .pricing-plans__content {
+    display: block;
+  }
+  .pricing-plans__item.show .pricing-plans__title:after {
+    background: url(../img/icons/minus.svg) center no-repeat;
+    background-size: 100%;
+  }
+  .pricing-plans__title {
+    position: relative;
+    margin: 0;
+    font-size: 24px;
+    line-height: 30px;
+    cursor: pointer;
+  }
+  .pricing-plans__title:after {
+    position: absolute;
+    display: block;
+    width: 18px;
+    height: 19px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: url(../img/icons/plus.svg) center no-repeat;
+    background-size: 100%;
+    content: "";
+  }
+  .pricing-plans__sub-title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .pricing-plans__list-text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .pricing-plans__content {
+    display: none;
+    padding: 6px 0 0;
+  }
+  .price-tariff__number {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .price-tariff__text {
+    font-size: 14px;
+  }
+  .service-info {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px 0;
+  }
+  .service-info__description {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .service-info__title {
+    margin: 0 0 16px;
+    font-size: 26px;
+    line-height: 26px;
+  }
+  .service-info .advantages {
+    margin: 0 0 16px;
+  }
+  .service-info .entry-form {
+    margin: 0 0 16px;
+  }
+  .service-info__img {
+    order: -1;
+    height: 208px;
+    border-radius: 20px;
+  }
+  .service-price {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px 0;
+  }
+  .service-price__price {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .service-price__text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .models-slider.swiper {
+    margin: 0 -1.25rem;
+    padding: 0 1rem;
+  }
+  .models-slider_indent-bottom {
+    margin-bottom: 20px !important;
+  }
+  .models-slider .swiper-slide {
+    padding: 0 0.25rem;
+    width: 189px;
+  }
+  .model__title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .catalog-models {
+    padding: 20px 0 0;
+  }
+  .models-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem 5px;
+  }
+  .models-list__item.hidden {
+    display: none;
+  }
+  .models-list ul li {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .models-list .btn {
+    display: block;
+    grid-column: span 2;
+  }
+  .question {
+    flex-direction: column;
+    gap: 20px 0;
+  }
+  .question__img {
+    width: 100%;
+    height: 190px;
+    border-radius: 20px;
+  }
+  .question .title {
+    margin: 0 0 14px;
+  }
+  .stage {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .stage p {
+    margin: 0 0 16px;
+    line-height: 20px;
+  }
+  .stage .small-title {
+    margin: 0 0 16px;
+  }
+  .gl-info-panel {
+    gap: 0 16px;
+    margin: 0 0 16px;
+  }
+  .gl-info-panel__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .gl-info-panel__text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .gl-info .small-title {
+    margin: 0 0 13px;
+  }
+  .gl-info p {
+    margin: 0 0 30px;
+  }
+  .application {
+    flex-direction: column;
+    gap: 16px 0;
+  }
+  .application__img {
+    order: -1;
+    width: 100%;
+    height: 220px;
+    border-radius: 20px;
+  }
+  .application .title {
+    margin: 0 0 16px;
+  }
+  .application__description > p {
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .application .compliments {
+    margin: 0 0 16px;
+  }
+  .application__bottom-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px 0;
+  }
+  .compliments dt {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .compliments__lis {
+    gap: 12px 0;
+  }
+  .compliments__text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .notification-text {
+    width: 100%;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .notification-text br {
+    display: none;
   }
 }
