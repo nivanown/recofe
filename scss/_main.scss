@@ -1835,7 +1835,7 @@
 	padding: 0.5625rem 1rem;
 	color: var(--primary-text-color);
 	border-radius: 1.3125rem;
-	box-shadow: 0 0 0 0.0625rem var(--primary-border-color);
+	box-shadow: 0 0 0 0.0625rem var(--primary-border-color) inset;
 	transition: .5s all;
 	&:hover {
 		background: var(--tertiary-background-color);
@@ -2264,8 +2264,33 @@
 
 /* sidebar */
 .sidebar {
+	position: relative;
 	flex-shrink: 0;
 	width: 17.1875rem;
+	&__close-btn {
+		position: relative;
+		display: none;
+		position: absolute;
+		width: 1.875rem;
+		height: 1.875rem;
+		top: -0.625rem;
+		right: -0.625rem;
+		font-size: 0;
+		background: var(--tertiary-background-color);
+		border-radius: 0.3125rem;
+		cursor: pointer;
+		&:before {
+			position: absolute;
+			width: 0.875rem;
+			height: 0.875rem;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: url(../img/icons/close.svg) center no-repeat;
+			background-size: 100%;
+			content: "";
+			}
+		}
 	}
 
 /* filter */
@@ -2368,6 +2393,30 @@
 		.select {
 			width: 16.5625rem;
 			}
+		}
+	}
+
+/* filter-mobile-btn */
+.filter-mobile-btn {
+	position: relative;
+	display: none;
+	width: 4.9375rem;
+	height: 3.125rem;
+	font-size: 0;
+	background: var(--tertiary-background-color);
+	border-radius: 0.625rem;
+	cursor: pointer;
+	&:before {
+		position: absolute;
+		display: block;
+		width: 1.5rem;
+		height: 1.5rem;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: url(../img/icons/filter-i.svg) center no-repeat;
+    background-size: 100%;
+		content: "";
 		}
 	}
 
@@ -4799,6 +4848,7 @@ input[type="range"]::-moz-range-thumb {
 		}
 	label {
 		display: block;
+		margin: 0;
 		padding: 1.1875rem 1.25rem;
 		font-size: 1rem;
 		text-align: center;
