@@ -2296,4 +2296,366 @@ textarea {
     }
   }
 
+.accordion-services {
+  &__item {
+    padding: 12px 0;
+    }
+  &__top-panel {
+    gap: 0 14px;
+    width: 100%;
+    }
+  &__arrow {
+    width: 36px;
+    height: 36px;
+    }
+  &__title {
+    font-size: 16px;
+    line-height: 20px;
+    }
+  &__number {
+    margin-left: auto;
+    font-size: 14px;
+    line-height: 20px;
+    }
+  }
+
+.prices-services {
+  border-radius: 20px;
+  &__item {
+    padding: 16px;
+    gap: 0 16px;
+    }
+  &__title {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  &__right-col {
+    flex-shrink: 0;
+    gap: 0 6px;
+    }
+  &__price {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  }
+
+.months-panel {
+  display: none;
+  }
+
+.repair-calendar-slider {
+  &.swiper {
+    margin: 0 -1rem;
+    padding: 0 0.75rem;
+    }
+  .swiper-slide {
+    padding: 0 0.25rem;
+    width: 255px;
+    }
+  }
+
+.top-panel {
+  p {
+    margin: 0;
+    color: var(--tertiary-text-color);
+    }
+  }
+
+.repair-calendar {
+  padding: 20px;
+  border-radius: 24px;
+  &__title {
+    font-size: 18px;
+    line-height: 24px;
+    }
+  p {
+    font-size: 14px;
+    line-height: 20px;
+    }
+  }
+
+.warning {
+  padding: 20px;
+  border-radius: 20px;
+  &__text {
+    font-size: 16px;
+    line-height: 20px;
+    }
+  }
+
+.price-col {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px 0;
+  &__number {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  }
+
+.protection-panel {
+  flex-direction: column;
+  gap: 40px 0;
+  padding: 20px;
+  &__description {
+    gap: 12px 0;
+    }
+  &__title {
+    font-size: 20px;
+    line-height: 20px;
+    }
+  }
+
+.pricing-plans {
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px 0;
+  &__item {
+    padding: 20px;
+    p {
+      font-size: 14px;
+      line-height: 18px;
+      }
+    &.show {
+      .pricing-plans__content {
+        display: block;
+        }
+      .pricing-plans__title {
+        &:after {
+          background: url(../img/icons/minus.svg) center no-repeat;
+          background-size: 100%;
+          }
+        }
+      }
+    }
+  &__title {
+    position: relative;
+    margin: 0;
+    font-size: 24px;
+    line-height: 30px;
+    cursor: pointer;
+    &:after {
+      position: absolute;
+      display: block;
+      width: 18px;
+      height: 19px;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background: url(../img/icons/plus.svg) center no-repeat;
+      background-size: 100%;
+      content: "";
+      }
+    }
+  &__sub-title {
+    font-size: 16px;
+    line-height: 20px;
+    }
+  &__list-text {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  &__content {
+    display: none;
+    padding: 6px 0 0;
+    }
+  }
+
+.price-tariff {
+  &__number {
+    font-size: 22px;
+    line-height: 28px;
+    }
+  &__text {
+    font-size: 14px;
+    }
+  }
+
+.service-info {
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px 0;
+  &__description {
+    padding: 20px;
+    border-radius: 20px;
+    }
+  &__title {
+    margin: 0 0 16px;
+    font-size: 26px;
+    line-height: 26px;
+    }
+  .advantages {
+    margin: 0 0 16px;
+    }
+  .entry-form {
+    margin: 0 0 16px;
+    }
+  &__img {
+    order: -1;
+    height: 208px;
+    border-radius: 20px;
+    }
+  }
+
+.service-price {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px 0;
+  &__price {
+    font-size: 18px;
+    line-height: 23px;
+    }
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  }
+
+.models-slider {
+  &.swiper {
+    margin: 0 -1.25rem;
+    padding: 0 1rem;
+    }
+  &_indent-bottom {
+    margin-bottom: 20px !important;
+    }
+  .swiper-slide {
+    padding: 0 0.25rem;
+    width: 189px;
+    }
+  }
+
+.model {
+  &__title {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  }
+
+.catalog-models {
+  padding: 20px 0 0;
+  }
+
+.models-list {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.625rem 5px;
+  &__item {
+    &.hidden {
+      display: none;
+      }
+    }
+  ul {
+    li {
+      font-size: 14px;
+      line-height: 18px;
+      }
+    }
+  .btn {
+    display: block;
+    grid-column: span 2;
+    }
+  }
+
+.question {
+  flex-direction: column;
+  gap: 20px 0;
+  &__img {
+    width: 100%;
+    height: 190px;
+    border-radius: 20px;
+    }
+  .title {
+    margin: 0 0 14px;
+    }
+  }
+
+.stage {
+  padding: 20px;
+  border-radius: 20px;
+  p {
+    margin: 0 0 16px;
+    line-height: 20px;
+    }
+  .small-title {
+    margin: 0 0 16px;
+    }
+  }
+
+.gl-info-panel {
+  gap: 0 16px;
+  margin: 0 0 16px;
+  &__title {
+    font-size: 12px;
+    line-height: 15px;
+    }
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  }
+
+.gl-info {
+  .small-title {
+    margin: 0 0 13px;
+    }
+  p {
+    margin: 0 0 30px;
+    }
+  }
+
+.application {
+  flex-direction: column;
+  gap: 16px 0;
+  &__img {
+    order: -1;
+    width: 100%;
+    height: 220px;
+    border-radius: 20px;
+    }
+  .title {
+    margin: 0 0 16px;
+    }
+  &__description {
+    > p {
+      margin: 0 0 16px;
+      font-size: 14px;
+      line-height: 20px;
+      }
+    }
+  .compliments {
+    margin: 0 0 16px;
+    }
+  &__bottom-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px 0;
+    }
+  }
+
+.compliments {
+  dt {
+    margin: 0 0 10px;
+    font-size: 14px;
+    line-height: 18px;
+    }
+  &__lis {
+    gap: 12px 0;
+    }
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    }
+  }
+
+.notification-text {
+  width: 100%;
+  font-size: 12px;
+  line-height: 15px;
+  br {
+    display: none;
+    }
+  }
+
 }

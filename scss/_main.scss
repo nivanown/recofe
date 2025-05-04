@@ -3791,7 +3791,6 @@ input[type="range"]::-moz-range-thumb {
 	&__top-panel {
 		display: inline-flex;
 		align-items: center;
-		flex-wrap: wrap;
 		gap: 0 1.25rem;
 		vertical-align: top;
 		cursor: pointer;
@@ -3899,6 +3898,7 @@ input[type="range"]::-moz-range-thumb {
 		}
 	&__more-link {
 		display: block;
+		flex-shrink: 0;
 		width: 1.5rem;
 		height: 1.5rem;
 		font-size: 0;
@@ -4131,6 +4131,11 @@ input[type="range"]::-moz-range-thumb {
 			line-height: 1.25rem;
 			}
 		}
+	&__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    }
 	&__title {
 		margin: 0 0 0.625rem;
 		font-size: 2rem;
@@ -4315,6 +4320,8 @@ input[type="range"]::-moz-range-thumb {
 		overflow: hidden;
 		img {
 			width: 100%;
+			height: 100%;
+			object-fit: cover;
 			}
 		}
 	&__title {
@@ -4360,6 +4367,9 @@ input[type="range"]::-moz-range-thumb {
 			font-size: 1rem;
 			line-height: 1.25rem;
 			}
+		}
+	.btn {
+		display: none;
 		}
 	}
 
