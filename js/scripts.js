@@ -509,20 +509,12 @@ var swiper = new Swiper(".certificates-slider", {
     spaceBetween: false,
     breakpoints: {
     0: {
-        slidesPerView: 2,
+        loop: false,
+        slidesPerView: "auto",
         spaceBetween: false,
-        slidesPerGroup: 2,
-        },
-    460: {
-        slidesPerView: 2,
-        spaceBetween: false,
-        slidesPerGroup: 2,
+        slidesPerGroup: true,
         },
     767: {
-        slidesPerView: 3,
-        spaceBetween: false,
-        },
-    1079: {
         slidesPerView: 3,
         spaceBetween: false,
         },
