@@ -424,20 +424,34 @@ if (document.getElementById('map')) {
 }
 
 function init() {
-    // Координаты для центра карты
     const centerCoords = [55.646223, 37.385978];
     const secondCoords = [55.646452, 37.387981];
 
-    // Создаём карту
     const myMap = new ymaps.Map("map", {
         center: centerCoords,
         zoom: 16,
         controls: ['zoomControl']
     });
 
-    myMap.behaviors.disable(['scrollZoom', 'multiTouch', 'dblClickZoom', 'ruler']);
+    // Отключаем лишние поведения по умолчанию
+    myMap.behaviors.disable(['scrollZoom', 'dblClickZoom', 'ruler']);
 
-    // Первый маркер
+    // Функция для управления тач-поведениям в зависимости от ширины
+    function updateMapBehaviors() {
+        if (window.innerWidth <= 767) {
+            myMap.behaviors.disable(['drag', 'multiTouch']);
+        } else {
+            myMap.behaviors.enable(['drag', 'multiTouch']);
+        }
+    }
+
+    // Вызовем при инициализации
+    updateMapBehaviors();
+
+    // И при изменении размера окна
+    window.addEventListener('resize', updateMapBehaviors);
+
+    // Маркеры
     const customPlacemark1 = new ymaps.Placemark(centerCoords, {
         hintContent: 'Recofe',
         balloonContent: 'Recofe: Ремонт кофемашин'
@@ -448,18 +462,16 @@ function init() {
         iconImageOffset: [-30, -70]
     });
 
-    // Второй маркер
     const customPlacemark2 = new ymaps.Placemark(secondCoords, {
         hintContent: 'Второе место',
         balloonContent: 'Это второе интересное место'
     }, {
         iconLayout: 'default#image',
-        iconImageHref: 'img/icons/map-location.svg', // Можно указать другой путь к иконке
+        iconImageHref: 'img/icons/map-location.svg',
         iconImageSize: [60, 68],
         iconImageOffset: [-30, -70]
     });
 
-    // Добавляем оба маркера на карту
     myMap.geoObjects.add(customPlacemark1);
     myMap.geoObjects.add(customPlacemark2);
 }
@@ -975,3 +987,54 @@ navItems.forEach(item => {
         }
     });
 });
+
+/*- filter-mobile -*/
+(function () {
+    const filterBtn = document.querySelector('.filter-mobile-btn');
+    const sidebar = document.querySelector('.sidebar');
+    const closeBtn = document.querySelector('.sidebar__close-btn');
+    const body = document.body;
+
+    let handlersActive = false;
+
+    if (!filterBtn || !sidebar || !closeBtn || !body) return;
+
+    function openSidebar() {
+        sidebar.classList.add('show');
+        body.classList.add('scroll-hidden');
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('show');
+        body.classList.remove('scroll-hidden');
+    }
+
+    function addEventListeners() {
+        if (!handlersActive) {
+            filterBtn.addEventListener('click', openSidebar);
+            closeBtn.addEventListener('click', closeSidebar);
+            handlersActive = true;
+        }
+    }
+
+    function removeEventListeners() {
+        if (handlersActive) {
+            filterBtn.removeEventListener('click', openSidebar);
+            closeBtn.removeEventListener('click', closeSidebar);
+            handlersActive = false;
+        }
+    }
+
+    function checkViewport() {
+        const width = window.innerWidth;
+            if (width >= 320 && width <= 767) {
+        addEventListeners();
+        } else {
+            removeEventListeners();
+        closeSidebar();
+        }
+    }
+
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+})();
