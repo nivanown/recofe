@@ -1,0 +1,227 @@
+/* mobile-dropdown */
+.mobile-dropdown {
+  position: absolute;
+  display: none;
+  padding: 1.25rem 1rem 3.125rem;
+  width: 100%;
+  top: 4.375rem;
+  border-top: 0.0625rem solid var(--primary-border-color);
+  background: var(--primary-background-color);
+  z-index: 60;
+  opacity: 0;
+  visibility: hidden;
+  transition: .5s all;
+  box-shadow: 0 0 0.3125rem 0.0625rem #1a1a1a;
+  &.show {
+  	opacity: 1;
+  	visibility: visible;
+  	}
+  &__info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem 0;
+    }
+  }
+
+/* mobile-menu */
+.mobile-menu {
+	position: fixed;
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.625rem 1rem 1rem;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	background: var(--secondary-background-color);
+	box-shadow: 0 0 0.3125rem 0.0625rem #1a1a1a;
+	z-index: 50;
+	&__item {
+		&.active {
+			.mobile-menu__icon {
+				svg {
+					fill: var(--secondary-text-color);
+					}
+				}
+			.mobile-menu__text {
+				color: var(--primary-text-color);
+				}
+			.mobile-menu__dropdown {
+			 	display: block;
+			 	}
+			}
+		}
+	&__item-in {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem 0;
+		cursor: pointer;
+		}
+	&__icon {
+		display: block;
+		width: 1.5rem;
+		svg {
+			width: 100%;
+			vertical-align: top;
+			fill: var(--tertiary-text-color);
+			transition: .5s fill;
+			}
+		}
+	&__text {
+		display: block;
+		color: var(--tertiary-text-color);
+		font-size: 0.75rem;
+		text-align: center;
+		line-height: 0.9375rem;
+		}
+	&__dropdown {
+		position: fixed;
+		display: none;
+		padding: 1.875rem 1rem 1rem;
+		width: 100%;
+		top: 0;
+		left: 0;
+		bottom: 4.5rem;
+		background: var(--primary-background-color);
+		transition: .5s all;
+		}
+	&__dropdown-in {
+		height: 100%;
+		overflow-y: auto;
+		}
+	}
+
+/* callback */
+#callback {
+	.mobile-menu__dropdown-in {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		}
+	}
+
+/* services-nav */
+.services-nav {
+	li {
+		font-size: 1rem;
+		line-height: 1.25rem;
+		border-bottom: 0.0625rem solid var(--primary-border-color);
+		&:first-child {
+			border-top: 0.0625rem solid var(--primary-border-color);
+			}
+		}
+	a {
+		position: relative;
+		display: block;
+		padding: 1.125rem 2.1875rem 1.125rem 0;
+		color: var(--primary-text-color);
+		&:after {
+			position: absolute;
+			display: block;
+			width: 0.5rem;
+			height: 0.875rem;
+			top: 50%;
+			right: 0.5625rem;
+			transform: translateY(-50%);
+			background: url(../img/icons/services-nav-arrow.svg) center no-repeat;
+			background-size: 100%;
+			content: "";
+			}
+		}
+	}
+
+/* phone-panel */
+.phone-panel {
+	display: flex;
+	align-items: center;
+	gap: 0 1rem;
+	img {
+		flex-shrink: 0;
+		width: 1.875rem;
+		}
+	&__description {
+		display: flex;
+		flex-direction: column;
+		gap: 0.375rem 0;
+		width: 100%;
+		}
+	&__tel {
+		display: block;
+		}
+	&__tel {
+		display: block;
+		color: var(--primary-text-color);
+		font-size: 1.25rem;
+		font-family: var(--secondary-font-family);
+  	font-weight: var(--quaternary-font-weight);
+  	line-height: 1.25rem;
+  	letter-spacing: -3%;
+		}
+	&__working-hours {
+		display: block;
+		color: var(--tertiary-text-color);
+		font-size: 1rem;
+		line-height: 1.25rem;
+		}
+	}
+
+/* mobile-messengers */
+.mobile-messengers {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0 0.625rem;
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 0 0.625rem;
+		padding: 0.8125rem 1rem;
+		background: var(--quaternary-background-color);
+		border-radius: 0.75rem;
+		img {
+			flex-shrink: 0;
+			width: 1.5rem;
+			}
+		}
+	&__text {
+		display: block;
+		color: var(--primary-text-color);
+		font-size: 1rem;
+		line-height: 1.25rem;
+		}
+	}
+
+/* email-link */
+.email-link {
+	display: flex;
+	align-items: center;
+	gap: 0 0.625rem;
+	img {
+		flex-shrink: 0;
+		width: 1.5rem;
+		}
+	&__text {
+		display: block;
+		color: var(--primary-text-color);
+		font-size: 1rem;
+		line-height: 1.25rem;
+		}
+	}
+
+/* mobile-callback */
+.mobile-callback {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem 0;
+	padding: 1.5rem;
+	background: var(--secondary-background-color);
+	border-radius: 1.5rem;
+	&__bnts-col {
+		display: flex;
+		align-items: center;
+		gap: 0 0.625rem;
+		.btn {
+			padding: 1.1875rem 0;
+			}
+		}
+	}

@@ -1,0 +1,13 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
+@font-face {
+  font-family: 'Actay Wide';
+  src: local('Actay Wide Bold'), local('ActayWide-Bold'),
+      url('../fonts/ActayWide-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/ActayWide-Bold.woff2') format('woff2'),
+      url('../fonts/ActayWide-Bold.woff') format('woff'),
+      url('../fonts/ActayWide-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  }
