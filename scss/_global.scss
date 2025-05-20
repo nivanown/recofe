@@ -661,6 +661,12 @@ textarea::-webkit-input-placeholder {
   font-weight: var(--quaternary-font-weight);
   line-height: 2.875rem;
   letter-spacing: -3%;
+  &_text-center {
+    text-align: center;
+    }
+  span {
+    color: var(--secondary-text-color);
+    }
   }
 
 /* md-title */
