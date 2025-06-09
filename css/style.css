@@ -151,11 +151,11 @@ iframe {
 }
 /* html */
 html {
-  min-width: 20rem;
-  min-height: 100%;
+  min-width: 320px;
   font-size: 1rem;
   line-height: 1.5;
   background: var(--primary-background-color);
+  overscroll-behavior-y: contain;
 }
 
 /* body */
@@ -7289,8 +7289,7 @@ input[type=range]::-moz-range-thumb {
     height: 8.125rem;
   }
   .mobile-menu {
-    /*display: flex;*/
-    display: none;
+    display: flex;
   }
   .main {
     gap: 2.5rem 0;
