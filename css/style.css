@@ -6898,14 +6898,11 @@ input[type=range]::-moz-range-thumb {
   border-top: 0.0625rem solid var(--primary-border-color);
   background: var(--primary-background-color);
   z-index: 60;
-  opacity: 0;
-  visibility: hidden;
   transition: 0.5s all;
   box-shadow: 0 0 0.3125rem 0.0625rem #1a1a1a;
 }
 .mobile-dropdown.show {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 .mobile-dropdown__info-col {
   display: flex;
@@ -7290,9 +7287,6 @@ input[type=range]::-moz-range-thumb {
   .categories__img {
     width: 12.5rem;
     height: 8.125rem;
-  }
-  .mobile-dropdown {
-    display: block;
   }
   .mobile-menu {
     display: flex;
