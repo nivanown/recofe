@@ -7289,7 +7289,8 @@ input[type=range]::-moz-range-thumb {
     height: 8.125rem;
   }
   .mobile-menu {
-    display: flex;
+    /*display: flex;*/
+    display: none;
   }
   .main {
     gap: 2.5rem 0;
