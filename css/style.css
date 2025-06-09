@@ -155,7 +155,6 @@ html {
   font-size: 1rem;
   line-height: 1.5;
   background: var(--primary-background-color);
-  overscroll-behavior-y: contain;
 }
 
 /* body */
@@ -7197,15 +7196,15 @@ input[type=range]::-moz-range-thumb {
 }
 /* 767 */
 @media (max-width: 767px) {
+  html {
+    /*font-size: 4.27vw;*/
+  }
   body.index {
     background: url(../img/bg/dec-bg-mob.png) top center no-repeat;
     background-size: 100%;
   }
   body.scroll-hidden {
     overflow: hidden;
-  }
-  html {
-    font-size: 4.27vw;
   }
   .wrapper {
     overflow: hidden;
