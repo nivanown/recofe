@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-
 /*- select -*/
 document.addEventListener("DOMContentLoaded", () => {
     const allSelects = document.querySelectorAll(".select");
@@ -354,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /*- reviews-list -*/
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
     let isActive = false;
     let cleanup = null;
 
@@ -406,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener('DOMContentLoaded', handleResize);
     window.addEventListener('resize', handleResize);
-})();
+});
 
 /*- map -*/
 if (document.getElementById('map')) {
@@ -464,7 +462,7 @@ function init() {
 
     myMap.geoObjects.add(customPlacemark1);
     myMap.geoObjects.add(customPlacemark2);
-}
+};
 
 /*- filter -*/
 document.querySelectorAll('.filter__title-panel').forEach(panel => {
@@ -746,10 +744,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /*- shopping-cart -*/
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.shopping-cart__left-col').forEach(el => {
-    const checkboxList = el.querySelector('.shopping-cart__checkbox-list');
-    el.classList.toggle('flex-start', !!checkboxList);
-  });
+    document.querySelectorAll('.shopping-cart__left-col').forEach(el => {
+        const checkboxList = el.querySelector('.shopping-cart__checkbox-list');
+        el.classList.toggle('flex-start', !!checkboxList);
+    });
 });
 
 /*- mobile-dropdown -*/
@@ -955,7 +953,7 @@ navItems.forEach(item => {
 });
 
 /*- filter-mobile -*/
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
     const filterBtn = document.querySelector('.filter-mobile-btn');
     const sidebar = document.querySelector('.sidebar');
     const closeBtn = document.querySelector('.sidebar__close-btn');
@@ -1003,7 +1001,7 @@ navItems.forEach(item => {
 
     checkViewport();
     window.addEventListener('resize', checkViewport);
-})();
+});
 
 /*- pricing-plans -*/
 function initAccordion() {
@@ -1139,6 +1137,4 @@ document.addEventListener("DOMContentLoaded", function () {
             tabContents[index].classList.add("active");
         });
     });
-});
-
 });
