@@ -7264,6 +7264,7 @@ input[type=range]::-moz-range-thumb {
     margin: 0;
   }
   .main-nav {
+    display: none;
     margin: 0 0 2rem;
   }
   .main-nav ul {
@@ -7286,6 +7287,9 @@ input[type=range]::-moz-range-thumb {
   .categories__img {
     width: 12.5rem;
     height: 8.125rem;
+  }
+  .mobile-dropdown.show .main-nav {
+    display: block;
   }
   .mobile-menu {
     display: flex;
