@@ -14,6 +14,10 @@ html {
 /* 767 */
 @media (max-width: 767px) {
 
+html {
+  font-size: 4.27vw;
+  }
+
 body {
   &.index {
     background: url(../img/bg/dec-bg-mob.png) top center no-repeat;
@@ -22,10 +26,6 @@ body {
   &.scroll-hidden {
     overflow: hidden;
     }
-  }
-
-html {
-  font-size: 4.27vw;
   }
 
 .wrapper {
@@ -94,6 +94,7 @@ input[type='password'] {
   }
 
 .main-nav {
+  display: none;
   margin: 0 0 2rem;
   ul {
     align-items: flex-start;
@@ -120,6 +121,14 @@ input[type='password'] {
   &__img {
     width: 12.5rem;
     height: 8.125rem;
+    }
+  }
+
+.mobile-dropdown {
+  &.show {
+    .main-nav {
+      display: block;
+      }
     }
   }
 
