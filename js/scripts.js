@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/*- reviews-list -*/
+/*- reviews-list 
 document.addEventListener("DOMContentLoaded", function () {
     let isActive = false;
     let cleanup = null;
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener('DOMContentLoaded', handleResize);
     window.addEventListener('resize', handleResize);
-});
+});-*/
 
 /*- map -*/
 if (document.getElementById('map')) {
@@ -878,7 +878,7 @@ function updateMonthsPanel() {
     updateMonthsPanel();
 })();
 
-/*- malfunctions -*/
+/*- malfunctions 
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelector('.malfunctions');
     if (!container) return;
@@ -936,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     handleResize();
     window.addEventListener('resize', handleResize);
-});
+});-*/
 
 /*- footer__nav -*/
 const navItems = document.querySelectorAll('.footer__nav-col-item');
@@ -952,7 +952,7 @@ navItems.forEach(item => {
     });
 });
 
-/*- filter-mobile -*/
+/*- filter-mobile
 document.addEventListener("DOMContentLoaded", function () {
     const filterBtn = document.querySelector('.filter-mobile-btn');
     const sidebar = document.querySelector('.sidebar');
@@ -1001,9 +1001,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     checkViewport();
     window.addEventListener('resize', checkViewport);
-});
+});-*/
 
-/*- pricing-plans -*/
+/*- pricing-plans 
 function initAccordion() {
   const titles = document.querySelectorAll('.pricing-plans__title');
 
@@ -1036,9 +1036,9 @@ window.addEventListener('resize', () => {
         title.parentNode.replaceChild(newTitle, title);
     });
     checkAccordionActivation();
-});
+});-*/
 
-/*- models-list -*/
+/*- models-list 
 document.addEventListener('DOMContentLoaded', function () {
     const minWidth = 320;
     const maxWidth = 767;
@@ -1089,7 +1089,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', () => {
         location.reload();
     });
-});
+});-*/
 
 /*- modal -*/
 const myModal = new HystModal({
