@@ -1042,13 +1042,6 @@ window.addEventListener('resize', () => {
 document.addEventListener('DOMContentLoaded', function () {
     const minWidth = 320;
     const maxWidth = 767;
-
-    function isInRange() {
-        const width = window.innerWidth;
-        return width >= minWidth && width <= maxWidth;
-    }
-
-    function setupModelList() {
     const container = document.querySelector('.models-list');
     if (!container) return;
 
@@ -1057,12 +1050,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!items.length || !button) return;
 
+    function isInRange(width) {
+        return width >= minWidth && width <= maxWidth;
+    }
+
     function applyInitialState() {
         items.forEach((item, index) => {
-        if (index >= 2) {
-            item.classList.add('hidden');
-        } else {
-            item.classList.remove('hidden');
+            if (index >= 2) {
+                item.classList.add('hidden');
+            } else {
+                item.classList.remove('hidden');
             }
         });
         button.textContent = 'Показать все';
@@ -1073,21 +1070,24 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isExpanded) {
             applyInitialState();
         } else {
-        items.forEach(item => item.classList.remove('hidden'));
+            items.forEach(item => item.classList.remove('hidden'));
             button.textContent = 'Скрыть';
         }
     }
 
-    if (isInRange()) {
+    let previousInRange = isInRange(window.innerWidth);
+
+    if (previousInRange) {
         applyInitialState();
         button.addEventListener('click', toggleItems);
-        }
     }
 
-    setupModelList();
-
     window.addEventListener('resize', () => {
-        location.reload();
+        const currentInRange = isInRange(window.innerWidth);
+        if (currentInRange !== previousInRange) {
+            location.reload();
+        }
+        previousInRange = currentInRange;
     });
 });
 
