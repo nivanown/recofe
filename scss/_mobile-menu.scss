@@ -10,8 +10,11 @@
   z-index: 60;
   transition: .5s all;
   box-shadow: 0 0 0.3125rem 0.0625rem #1a1a1a;
+  opacity: 0;
+  visibility: hidden;
   &.show {
-  	display: block;
+  	opacity: 1;
+  	visibility: visible;
   	}
   &__info-col {
     display: flex;
