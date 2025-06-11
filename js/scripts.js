@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/*- reviews-list 
+/*- reviews-list -*/
 document.addEventListener("DOMContentLoaded", function () {
     let isActive = false;
     let cleanup = null;
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener('DOMContentLoaded', handleResize);
     window.addEventListener('resize', handleResize);
-});-*/
+});
 
 /*- map -*/
 if (document.getElementById('map')) {
