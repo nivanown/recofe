@@ -878,7 +878,7 @@ function updateMonthsPanel() {
     updateMonthsPanel();
 })();
 
-/*- malfunctions 
+/*- malfunctions -*/
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelector('.malfunctions');
     if (!container) return;
@@ -936,7 +936,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     handleResize();
     window.addEventListener('resize', handleResize);
-});-*/
+});
 
 /*- footer__nav -*/
 const navItems = document.querySelectorAll('.footer__nav-col-item');
@@ -952,7 +952,7 @@ navItems.forEach(item => {
     });
 });
 
-/*- filter-mobile
+/*- filter-mobile -*/
 document.addEventListener("DOMContentLoaded", function () {
     const filterBtn = document.querySelector('.filter-mobile-btn');
     const sidebar = document.querySelector('.sidebar');
@@ -1001,7 +1001,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     checkViewport();
     window.addEventListener('resize', checkViewport);
-});-*/
+});
 
 /*- pricing-plans -*/
 function initAccordion() {
