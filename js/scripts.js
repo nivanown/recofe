@@ -1038,7 +1038,7 @@ window.addEventListener('resize', () => {
     checkAccordionActivation();
 });-*/
 
-/*- models-list 
+/*- models-list -*/
 document.addEventListener('DOMContentLoaded', function () {
     const minWidth = 320;
     const maxWidth = 767;
@@ -1089,7 +1089,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', () => {
         location.reload();
     });
-});-*/
+});
 
 /*- modal -*/
 const myModal = new HystModal({
