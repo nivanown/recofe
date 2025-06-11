@@ -1,7 +1,6 @@
 /* mobile-dropdown */
 .mobile-dropdown {
   position: absolute;
-  display: none;
   padding: 1.25rem 1rem 3.125rem;
   width: 100%;
   top: 4.375rem;
@@ -47,7 +46,8 @@
 				color: var(--primary-text-color);
 				}
 			.mobile-menu__dropdown {
-			 	display: block;
+			 	opacity: 1;
+			 	visibility: visible;
 			 	}
 			}
 		}
@@ -77,7 +77,6 @@
 		}
 	&__dropdown {
 		position: fixed;
-		display: none;
 		padding: 1.875rem 1rem 1rem;
 		width: 100%;
 		top: 0;
@@ -85,6 +84,8 @@
 		bottom: 4.5rem;
 		background: var(--primary-background-color);
 		transition: .5s all;
+		opacity: 0;
+		visibility: hidden;
 		}
 	&__dropdown-in {
 		height: 100%;
