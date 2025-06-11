@@ -6876,7 +6876,6 @@ input[type=range]::-moz-range-thumb {
 /* mobile-dropdown */
 .mobile-dropdown {
   position: absolute;
-  display: none;
   padding: 1.25rem 1rem 3.125rem;
   width: 100%;
   top: 4.375rem;
@@ -6919,7 +6918,8 @@ input[type=range]::-moz-range-thumb {
   color: var(--primary-text-color);
 }
 .mobile-menu__item.active .mobile-menu__dropdown {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 .mobile-menu__item-in {
   display: flex;
@@ -6947,7 +6947,6 @@ input[type=range]::-moz-range-thumb {
 }
 .mobile-menu__dropdown {
   position: fixed;
-  display: none;
   padding: 1.875rem 1rem 1rem;
   width: 100%;
   top: 0;
@@ -6955,6 +6954,8 @@ input[type=range]::-moz-range-thumb {
   bottom: 4.5rem;
   background: var(--primary-background-color);
   transition: 0.5s all;
+  opacity: 0;
+  visibility: hidden;
 }
 .mobile-menu__dropdown-in {
   height: 100%;
