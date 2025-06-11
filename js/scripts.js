@@ -1003,7 +1003,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('resize', checkViewport);
 });-*/
 
-/*- pricing-plans 
+/*- pricing-plans -*/
 function initAccordion() {
   const titles = document.querySelectorAll('.pricing-plans__title');
 
@@ -1036,7 +1036,7 @@ window.addEventListener('resize', () => {
         title.parentNode.replaceChild(newTitle, title);
     });
     checkAccordionActivation();
-});-*/
+});
 
 /*- models-list -*/
 document.addEventListener('DOMContentLoaded', function () {
